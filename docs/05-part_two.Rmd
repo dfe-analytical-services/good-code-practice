@@ -1,0 +1,72 @@
+# Advanced: Testing code{#testing}
+
+From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of model assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:
+
+- console tests 
+- in-script testing
+- formal tests using tools such as `testthat` in R
+
+Testing code within the R console is not recommended as it leaves no trace or records of what has been checked. In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perfom in-script checks, from `print()` statements, to `base` functions `stop()` and `stopfinot()`, to functions from dedicated packages such as `assertthat` or `testit`. Examples are shown below. 
+
+```{r stopifnot, eval = FALSE, class.source = "badCode"}
+
+# This code snippet creates a function that
+# returns the maximum value of a vector
+# of numbers. The function contains 
+# an in-script test checking that
+# its input is numerical. If the condition
+# is not met, execution is halted
+get_max <- function(x) {
+  stopifnot(is.numeric(x))
+  max(x)
+}
+
+get_max(c(1:10))
+# returns 10
+get_max(c("a", "b", "c"))
+# returns error message
+# Error in get_max(c("a", "b", "c")) : is.numeric(x) is not TRUE
+
+
+```
+
+Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (Dev version is here <https://github.com/r-lib/testthat> but also on CRAN). Altough most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects. 
+
+In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectactions - see details at <http://r-pkgs.had.co.nz/tests.html>. Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
+
+```{r testthat, eval = FALSE}
+# This file is stored in a directory called "testing_directory" 
+
+# Define context
+context("checking data integrity")
+
+# The first test checks that the data set
+# "mydata" has a a single column and 100 rows
+test_that('data dimensions correct', {
+  expect_equal(ncol(mydata), 1)
+  expect_equal(nrow(mydata), 100)
+})
+
+# The second test checks that the maximum value
+# of the variable "some_numbers" does not exceed 1
+test_that('no value greater than 1', {
+  expect_lt(max(mydata$some_numbers), 1)
+})
+
+```
+
+Expectations are tested using the `test_dir()` function, which takes the path to the testing directory as an argument. 
+```{r testing, message = FALSE, eval = FALSE, class.source = "badCode"}
+library(testthat)
+library(tidyverse)
+
+# create a data frame
+mydata <- tibble(some_numbers = runif(100))
+
+# test expectations and examine outputs
+# In this case, all tests are OK
+test_dir("testing_directory")
+```
+
+`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occured.  
+
