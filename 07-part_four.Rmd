@@ -1,4 +1,4 @@
-# Advanced: Documentation{#documenation}
+# Advanced: Documentation{#documentation}
 
 For a quality assurer, making sense of a large piece of code without guidance is difficult, time consuming, and at worst leads to mistakes going undetected by the QA process. Documentation is therefore absolutely essential when writing code, and can be done at various, non-mutually exclusive levels: 
 
