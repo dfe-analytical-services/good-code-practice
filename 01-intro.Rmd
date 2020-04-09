@@ -1,0 +1,31 @@
+# The fundamentals of writing good code
+
+Writing good code - code that can be easily understood, used, maintained and modified – is vital. The requirement for better, more robust models and reliable data analysis that meet our emerging quality assurance expectations is intensifying. At the same time, the growing toolkit of data science techniques is creating exciting opportunities for Government analysts to explore new methodologies and software, along with an expanding choice of coding platforms to work within.
+
+However, there is little guidance on how to write good – or perhaps we should say better – code. It is all too easy to manufacture working code that does the job but is unintelligible even to its author within a few days. We do acknowledge that there is no single way to write great code but there are common principles that when used will always help you write good code. This guidance aims to bring together best practice in coding to support our analysts in our fast-changing world.
+
+## Why writing good code is so important
+
+When embarking on a coding task it can be very easy to focus on a single immediate goal – making something that works now. But there are others who will need to use your code, and who may have different priorities. They include:
+
+* A fellow analyst who needs to quality assure (QA) the code it to make sure it’s doing what’s intended
+*	A colleague who wants to run your code on a different machine
+*	Your future self, who needs to come back to reuse, and perhaps alter, the code in future (you will be surprised by how quickly you forget what you did)
+*	A new team member who needs to continue using and building on your code if/when you move on from your role
+
+For all of these people, code needs to be:
+
+* easy to read,
+*	easy to understand, and
+*	easy to modify.
+
+These should be your key considerations when writing code. You might be sure your code works, but if it’s difficult for someone else to verify that it works, or to reuse and adapt it in future, then...well, it’s not _completely_ useless, but it’s pretty close.
+
+Good coding practice is therefore about ensuring that any code, written for any purpose, is easy to read and understand, is easily shared between analysts, and is straightforward to QA. It aims to avoid wasted time and error, as well as helping to “de-mystify” coding to those who are new to the skill.
+
+By utilising and promoting the principles of good coding practice the Department can face a changing and developing world of analysis in confidence:
+
+*	Quality assurance can be quick and effective – _good code is easy to understand_
+*	Staff turnover needn’t waste time – _good code is easy to use_
+*	Changing policies will not require model rebuilds – _good code is easy to maintain_
+*	New models do not need to start from scratch – _good code is easy to modify_
