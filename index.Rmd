@@ -12,7 +12,7 @@ description: "This is a minimal example of using the bookdown package to write a
 ---
 
 # The QA framework
-The [DfE QA framework](https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Quality%20Assurance.aspx) was introduced in April 2019.
+The [DfE QA framework](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf) was introduced in April 2019.
 The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics. 
 
 ## Writing code for QA
