@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Good code practice</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Good code practice" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Good code practice" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Department for Education guidance" />
+
+
+<meta name="date" content="2020-04-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="the-fundamentals-of-writing-good-code.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.1</b> Writing code for QA</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.2</b> Our approach to writing and updating this guidance</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html#why-writing-good-code-is-so-important"><i class="fa fa-check"></i><b>2.1</b> Why writing good code is so important</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="fundamentals-how-to-write-good-code.html"><a href="fundamentals-how-to-write-good-code.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
+<li class="chapter" data-level="4" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
+<li class="chapter" data-level="4.1" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
+<li class="chapter" data-level="4.2" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
+<li class="chapter" data-level="4.3" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#descriptive-use-of-variable-names"><i class="fa fa-check"></i><b>4.3</b> Descriptive use of variable names</a></li>
+<li class="chapter" data-level="4.4" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#descriptive-and-informative-comments"><i class="fa fa-check"></i><b>4.4</b> Descriptive and informative comments</a></li>
+<li class="chapter" data-level="4.5" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#a-clear-flow-and-structure"><i class="fa fa-check"></i><b>4.5</b> A clear flow and structure</a></li>
+<li class="chapter" data-level="4.6" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#consistent-spacing"><i class="fa fa-check"></i><b>4.6</b> Consistent spacing</a></li>
+<li class="chapter" data-level="4.7" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
+<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a></li>
+<li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
+<li class="chapter" data-level="8" data-path="documenation.html"><a href="documenation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
+<li class="chapter" data-level="8.1" data-path="documenation.html"><a href="documenation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
+<li class="chapter" data-level="8.2" data-path="documenation.html"><a href="documenation.html#rmarkdown-file"><i class="fa fa-check"></i><b>8.2</b> Rmarkdown file</a></li>
+<li class="chapter" data-level="8.3" data-path="documenation.html"><a href="documenation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
+<li class="chapter" data-level="8.4" data-path="documenation.html"><a href="documenation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Annex-A.html"><a href="Annex-A.html"><i class="fa fa-check"></i><b>9</b> Annex A: Version Control</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Good code practice</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Good code practice</h1>
+<p class="author"><em>Department for Education guidance</em></p>
+<p class="date"><em>2020-04-09</em></p>
+</div>
+<div id="the-qa-framework" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> The QA framework</h1>
+<p>The <a href="https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Quality%20Assurance.aspx">DfE QA framework</a> was introduced in April 2019.
+The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics.</p>
+<div id="writing-code-for-qa" class="section level2">
+<h2><span class="header-section-number">1.1</span> Writing code for QA</h2>
+<p>There are 4 main aspects to writing high-quality code:
+1. maintaining a clear code structure
+2. testing throughout
+3. having excellent version control and
+4. providing sufficient documentation</p>
+<p>These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely <strong>Governance and Documentation</strong>, <strong>Clarity and structure</strong> and <strong>Verification</strong>.</p>
+<p>This guidance is split into several parts; parts one and two cover the fundamentals of writing good code and maintaining a clear code structure, whilst parts three to six cover testing, version control and documentation and have more focus on quality assuring code. Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic.</p>
+</div>
+<div id="our-approach-to-writing-and-updating-this-guidance" class="section level2">
+<h2><span class="header-section-number">1.2</span> Our approach to writing and updating this guidance</h2>
+<p>Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small (a few hundred lines of code at most) and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.</p>
+<p>The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon. It is intended to be a living document therefore if you have suggestions for improvements or additions, please contact the <a href="mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice">Modelling Improvement and Assurance Unit</a>. These will be reviwed by the DfE QA working group and any approved changes will be made. For a full Version History, please see <a href="Annex-A.html#Annex_A">Annex A</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="the-fundamentals-of-writing-good-code.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
