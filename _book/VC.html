@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Advanced: Version control | Good code practice</title>
+  <title>Chapter 7 Advanced: Version control | Good code practice</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Advanced: Version control | Good code practice" />
+  <meta property="og:title" content="Chapter 7 Advanced: Version control | Good code practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Advanced: Version control | Good code practice" />
+  <meta name="twitter:title" content="Chapter 7 Advanced: Version control | Good code practice" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="VC" class="section level1">
-<h1><span class="header-section-number">7</span> Advanced: Version control</h1>
+<h1><span class="header-section-number">Chapter 7</span> Advanced: Version control</h1>
 <p>Version control is critically important to writing robust, reproducible code, and is highly recommended regardless of QA requirements. At is most basic, it means keeping track of changes made to code over time. Version control software like <code>Git</code> take code snapshots and store them either locally or remotely. Purely local version control with <code>Git</code> offers fewer functionalities but is still extremely useful in reducing the risk of code-breaking changes as analysts can backtrack to previous working versions of their code. Remote version control requires the use of a Git repository hosting service such as Github or Azure DevOps. These are online platforms were git repositories can be saved and synched with their local counterparts. This is a powerful way to write code collaboratively, with QA built-in the code writing process.</p>
 <p>A thorough guide on version control using Git and DevOps for DfE analysts can be found here <a href="https://dfe-analytical-services.github.io/vsts-for-analysis/" class="uri">https://dfe-analytical-services.github.io/vsts-for-analysis/</a>. From a QA point of view, an ideal situation is where the author of the code and their quality assurer collaborate on a same <code>Git</code> project. Concretely, the analyst creates a <strong>pull request</strong> to merge their code changes into a clean master version of the code. The approver then evaluates whether the change is appropriate and either approve or asks for edits to be made. This is an ideal scenario and perhaps recommanded for business critical work. In most cases, the approver will have first sighting of the code after the project is completed. In that case, version control logs can still be saved to file and shared.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r badCode"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># open a shell from Rstudio Tools</span></a>
