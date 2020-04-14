@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-04-09" />
+<meta name="date" content="2020-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -153,7 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="Annex-A.html"><a href="Annex-A.html"><i class="fa fa-check"></i><b>9</b> Annex A: Version Control</a></li>
 </ul>
 
       </nav>
@@ -177,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>console tests</li>
 <li>in-script testing</li>
-<li>formal tests using tools such as <code>testthat</code> in R</li>
+<li>unit testing (using tools such as <code>testthat</code> in R)</li>
 </ul>
 <p>Testing code within the R console is not recommended as it leaves no trace or records of what has been checked. In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perfom in-script checks, from <code>print()</code> statements, to <code>base</code> functions <code>stop()</code> and <code>stopfinot()</code>, to functions from dedicated packages such as <code>assertthat</code> or <code>testit</code>. Examples are shown below.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r badCode"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># This code snippet creates a function that</span></a>
@@ -196,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb9-14" title="14"><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</a>
 <a class="sourceLine" id="cb9-15" title="15"><span class="co"># returns error message</span></a>
 <a class="sourceLine" id="cb9-16" title="16"><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></a></code></pre></div>
-<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (Dev version is here <a href="https://github.com/r-lib/testthat" class="uri">https://github.com/r-lib/testthat</a> but also on CRAN). Altough most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects.</p>
+<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as ‘unit tetsing’. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (Dev version is here <a href="https://github.com/r-lib/testthat" class="uri">https://github.com/r-lib/testthat</a> but also on CRAN). Altough most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, for a more detailed introduction see here <a href="https://katherinemwood.github.io/post/testthat/" class="uri">https://katherinemwood.github.io/post/testthat/</a>.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of a specific piece of code - typically a function. <code>testthat</code> provides many functionalities to define expectactions - see details at <a href="http://r-pkgs.had.co.nz/tests.html" class="uri">http://r-pkgs.had.co.nz/tests.html</a>. Expectations falling within a same testing <strong>context</strong> are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></a>
 <a class="sourceLine" id="cb10-2" title="2"></a>

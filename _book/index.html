@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Advanced: Documentation | Good code practice</title>
+  <title>Good code practice</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Advanced: Documentation | Good code practice" />
+  <meta property="og:title" content="Good code practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Advanced: Documentation | Good code practice" />
+  <meta name="twitter:title" content="Good code practice" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-04-14" />
+<meta name="date" content="2020-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="VC.html"/>
 
+<link rel="next" href="the-fundamentals-of-writing-good-code.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -153,6 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="Annex-A.html"><a href="Annex-A.html"><i class="fa fa-check"></i><b>9</b> Annex A: Version Control</a></li>
 </ul>
 
       </nav>
@@ -170,30 +171,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="documentation" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Advanced: Documentation</h1>
-<p>For a quality assurer, making sense of a large piece of code without guidance is difficult, time consuming, and at worst leads to mistakes going undetected by the QA process. Documentation is therefore absolutely essential when writing code, and can be done at various, non-mutually exclusive levels:</p>
-<ul>
-<li>Comments</li>
-<li>Rmarkdown file</li>
-<li>Package</li>
-</ul>
-<div id="comments" class="section level2">
-<h2><span class="header-section-number">8.1</span> Comments</h2>
-<p>As we covered <a href="documentation.html#comments">earlier</a>, comments are non-executable lines of code that describe what part of a programming script is intended to do. There is little to no overhead in adding comments to code and they often offer sufficient guidance from a quality assurance point of view. In both R and Python, text can be commented out in a script by usign the <code>#</code> sign (a different syntax exists in Python for commenting out multiple lines at once). Long comments should be broken down over multiple lines to make them easier to read.</p>
+<div id="header">
+<h1 class="title">Good code practice</h1>
+<p class="author"><em>Department for Education guidance</em></p>
+<p class="date"><em>2020-04-09</em></p>
 </div>
-<div id="rmarkdown-file" class="section level2">
-<h2><span class="header-section-number">8.2</span> Rmarkdown file</h2>
-<p>Very often, documentation via in-script comments is sufficient for QA purposes. However providing a separate file dedicated to documentation can be useful for the more complex or riskier pieces of analyses. When coding in R, writing documentation as an Rmarkdown file can be a superior alternative to plain word documents or slide packs, particularly if many references to the source code are needed. The Rmarkdown format allows you to create html, pdf or word documents that include both R code and R outputs. An analyst could choose to have their entire analysis embedded in an Rmarkdown document and share both code and outputs with their quality assurer. Although this can make reproducibility checks easier, it is worth noting that using Rmarkown or Rnotebook documents can become unwieldy for computationally intensive analyses. Again Rstudio makes it very easy to create this type of document, as they are all available options in <code>File &gt; New File</code>. Handy cheatsheets are also accessible from the<code>Tools</code> dropdown menu.</p>
+<div id="the-qa-framework" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> The QA framework</h1>
+<p>The <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf">DfE QA framework</a> was introduced in April 2019.
+The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics.</p>
+<div id="writing-code-for-qa" class="section level2">
+<h2><span class="header-section-number">1.1</span> Writing code for QA</h2>
+<p>There are 4 main aspects to writing high-quality code:
+1. maintaining a clear code structure
+2. testing throughout
+3. having excellent version control and
+4. providing sufficient documentation</p>
+<p>These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely <strong>Governance and Documentation</strong>, <strong>Clarity and structure</strong> and <strong>Verification</strong>.</p>
+<p>This guidance is split into several parts; parts one and two cover the fundamentals of writing good code and maintaining a clear code structure, whilst parts three to six cover testing, version control and documentation and have more focus on quality assuring code. Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic.</p>
 </div>
-<div id="packaging-your-analysis" class="section level2">
-<h2><span class="header-section-number">8.3</span> Packaging your analysis</h2>
-<p>A more involved way of documenting a piece of code written in R is to bundle the functions it uses into an R package. Although Rstudio makes it relatively painless to package code, a certain level of experience is required to create good documentation for it (see here <a href="http://r-pkgs.had.co.nz/" class="uri">http://r-pkgs.had.co.nz/</a>). For most analytical projects, packaging will not be needed to meet QA requirements. However, packaging should be considered if the code must be shared and used widely i.e. beyond quality assurers. Packages are major tools for reproducible coding in R, and allow for very extensive documentation, including help files for individual functions, detailed package dependency description and support for vignette creation.</p>
-</div>
-<div id="a-word-on-package-version-and-dependency" class="section level2">
-<h2><span class="header-section-number">8.4</span> A word on package version and dependency</h2>
-<p>R and RStudio are regularly updated and multiple versions of both are available on DfE’s software centre. Similarly, many R packages are maturing products that are actively being developed, with new iterations regularly being released. This means that code working in a certain way on one analyst’s machine might not necessarily do so on that or their quality assurer’s. These situations can be tricky to recognise and debug.</p>
-<p>There are formal ways to keep track of package versions, the most popular being <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html" class="uri">https://rstudio.github.io/renv/articles/renv.html</a>. <code>renv</code> is a successor to the <code>packrat</code> package and makes package management easier and faster. It is a good idea to think about package dependencies and versions when dealing with projets destined to be shared widely, or with a long life-span. This is less of a concern when sharing code on a one-off analysis with a small number of quality assurers. A less formal way of documenting software and package versions would be for authors to include their <code>sessionInfo()</code> at the top of their master script.</p>
+<div id="our-approach-to-writing-and-updating-this-guidance" class="section level2">
+<h2><span class="header-section-number">1.2</span> Our approach to writing and updating this guidance</h2>
+<p>Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small (a few hundred lines of code at most) and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.</p>
+<p>The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon. It is intended to be a living document therefore if you have suggestions for improvements or additions, please contact the <a href="mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice">Modelling Improvement and Assurance Unit</a>. These will be reviwed by the DfE QA working group and any approved changes will be made. For a full Version History, please see <a href="Annex-A.html#Annex_A">Annex A</a>.</p>
 
 </div>
 </div>
@@ -202,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="VC.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
+<a href="the-fundamentals-of-writing-good-code.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

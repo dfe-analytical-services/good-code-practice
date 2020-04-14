@@ -1,0 +1,39 @@
+---
+title: "Good code practice"
+author: "Department for Education guidance"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# The QA framework
+The [DfE QA framework](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf) was introduced in April 2019.
+The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics. 
+
+## Writing code for QA
+
+There are 4 main aspects to writing high-quality code: 
+1. maintaining a clear code structure
+2. testing throughout
+3. having excellent version control and 
+4. providing sufficient documentation
+
+These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely **Governance and Documentation**, **Clarity and structure** and **Verification**.  
+
+This guidance is split into several parts; parts one and two cover the fundamentals of writing good code and maintaining a clear code structure, whilst parts three to six cover testing, version control and documentation and have more focus on quality assuring code.  Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic. 
+
+## Our approach to writing and updating this guidance
+
+Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small (a few hundred lines of code at most) and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.
+
+The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon.  It is intended to be a living document therefore if you have suggestions for improvements or additions, please contact the [Modelling Improvement and Assurance Unit](mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice).  These will be reviwed by the DfE QA working group and any approved changes will be made.  For a full Version History, please see [Annex A](#Annex_A).
+
+
+
+
+
