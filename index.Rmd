@@ -31,7 +31,7 @@ This guidance is split into several parts; parts one and two cover the fundament
 
 Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small (a few hundred lines of code at most) and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.
 
-The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon.  It is intended to be a living document therefore if you have suggestions for improvements or additions, please contact the [Modelling Improvement and Assurance Unit](mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice).  These will be reviwed by the DfE QA working group and any approved changes will be made.  
+The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon.  It is intended to be a living document therefore if you have suggestions for improvements or additions, please contact the [Modelling Improvement and Assurance Unit](mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice) or raise an issue on [Git](https://github.com/lsunter/GoodCodingPractice/issues).  These will be reviwed by the DfE QA working group and any approved changes will be made.  
 
 
 
