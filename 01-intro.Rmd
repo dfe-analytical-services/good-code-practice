@@ -28,4 +28,4 @@ By utilising and promoting the principles of good coding practice the Department
 *	Quality assurance can be quick and effective – _good code is easy to understand_
 *	Staff turnover needn’t waste time – _good code is easy to use_
 *	Changing policies will not require model rebuilds – _good code is easy to maintain_
-*	New models do not need to start from scratch – _good code is easy to modify_
+*	New models do not need to start from scratch – _good code is easy to modify_ 

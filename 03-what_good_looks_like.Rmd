@@ -139,7 +139,7 @@ if (fruit == “Orange”) {
 ```
 
 ## If required, the use of functions or subroutines
-You shouldn’t be repeatedly writing the same code: if you find yourself doing this, stop! It’s much more efficient to create a function or subroutine instead. By doing this you only need to quality assure the function once, rather than your repetitive code many times. It also means that any future changes need to be implemented only in one place rather than many, and can be more efficient for the code to run.
+You shouldn’t be repeatedly writing the same code: if you find yourself doing this, stop! It’s much more efficient to create a function or subroutine instead. By doing this you only need to quality assure the function once, rather than your repetitive code many times. It also means that any future changes need to be implemented only in one place rather than many, and can be more efficient for the code to run. 
 ```
 # Create a function for calculating the weighted average
 weight_avg <- function(year, year_grp) {

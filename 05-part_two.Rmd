@@ -1,4 +1,4 @@
-# Advanced: Testing code{#testing}
+# Advanced: Testing code{#testing} 
 
 From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of model assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:
 
@@ -30,7 +30,7 @@ get_max(c("a", "b", "c"))
 
 ```
 
-Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as 'unit tetsing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (Dev version is here <https://github.com/r-lib/testthat> but also on CRAN). Altough most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, for a more detailed introduction see here <https://katherinemwood.github.io/post/testthat/>. 
+Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as 'unit testing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (Dev version is here <https://github.com/r-lib/testthat> but also on CRAN). Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, for a more detailed introduction see here <https://katherinemwood.github.io/post/testthat/>. 
 
 In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectactions - see details at <http://r-pkgs.had.co.nz/tests.html>. Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
 

@@ -3,7 +3,7 @@
 There are no hard and fast rules for how to design good code. Much will depend on the task in hand, the coding platform chosen, and the preferences of the individual. But experienced coders have learnt what works well, and some of the pitfalls to avoid, when preparing to write code. The guidelines below set out to capture that experience as a series of individual tips and advice
 
 **Be clear about your aims**  
-Ensure that you understand fully what your code has to achieve. Talk with your customer or other stakeholders to get a good sense of what they are expecting. Ask them about the level of detail they are seeking, the available data resources, the assumptions they are prepared to make, the output they require, and the timeframe for the work.
+Ensure that you understand fully what your code has to achieve. Talk with your customer or other stakeholders to get a good sense of what they are expecting. Ask them about the level of detail they are seeking, the available data resources, the assumptions they are prepared to make, the output they require, and the timeframe for the work. 
 
 **Resource and prepare the input data**  
 It is unlikely that the data you need as input is in a format that is immediately useful. Decide the scope of the data you need and make an extract accordingly: don’t just pull a whole data table into your code when you only need a small part of it.
