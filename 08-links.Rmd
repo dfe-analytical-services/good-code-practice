@@ -1,0 +1,30 @@
+# Links{#links}
+
+All of the links mentioned throughout this document, plus some additional reading and resources are here.
+
+## Internal DfE resources
+
+* [DfE QA framework](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/Quality-Assurance.aspx)
+* [Git and DevOps Guide](https://dfe-analytical-services.github.io/vsts-for-analysis/)
+* [Analytics Academy - R training course](https://trello.com/invite/b/QdDx3VmA/96f273b3438db2bb8ee5feae3943c3d4/analytics-academy-an-r-training-course)
+* [DfE Coffee and Coding](https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Coffee%20and%20Coding.aspx)
+* [R in ESFA](https://rsconnect/rsc/esfa-r-training/)
+* [Data Engineering Division T-SQL coding standards](https://teams.microsoft.com/l/file/5F396754-1495-49C8-AF19-E00498D2AF2A?tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9&fileType=docx&objectUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN%2FShared%20Documents%2FAll%20analysts%2FTSQL%20Coding%20Standards.docx&baseUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN&serviceName=teams&threadId=19:62586ff36a9046eb9615668635ef3f8b@thread.skype&groupId=6572094f-43a3-4537-bcf0-fc27dc6557ed)
+* [FE R and SQL guide](https://educationgovuk.sharepoint.com/sites/DAN/Shared%20Documents/DfE%20Data%20Science/2020-04_coding-best-practice-guide.html)
+* [Statistics Production Guidance](https://rsconnect/rsc/stats-production-guidance/)
+
+## Testing
+* [TestThat blog](https://katherinemwood.github.io/post/testthat/)
+* [Hadley Wickham - Testing](http://r-pkgs.had.co.nz/tests.html)
+* [Unit testing in R](https://billster45.github.io/rapid_r_data_vis_book/intro.html#qa-and-unit-tests)
+
+## Style Guides
+* [R Style guide](https://style.tidyverse.org/index.html)
+* [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+* [Kickstarter SQL guide](https://gist.github.com/fredbenenson/7bb92718e19138c20591)
+* [VBA Style Guide](https://github.com/danwagnerco/vba-style-guide)
+
+## R
+* [Rapid R Data Viz](https://billster45.github.io/rapid_r_data_vis_book/)
+* [Packaging R](http://r-pkgs.had.co.nz/)
+* [Renv](https://rstudio.github.io/renv/articles/renv.html)

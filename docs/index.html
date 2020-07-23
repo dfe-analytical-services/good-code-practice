@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Good code practice</title>
+  <title>DfE Good code practice</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Good code practice" />
+  <meta property="og:title" content="DfE Good code practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Good code practice" />
+  <meta name="twitter:title" content="DfE Good code practice" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-05-03" />
+<meta name="date" content="2020-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,30 +130,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.1</b> Writing code for QA</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.2</b> Our approach to writing and updating this guidance</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.3</b> Our approach to writing and updating this guidance</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html#why-writing-good-code-is-so-important"><i class="fa fa-check"></i><b>2.1</b> Why writing good code is so important</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
-<li class="chapter" data-level="4" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
-<li class="chapter" data-level="4.1" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
-<li class="chapter" data-level="4.2" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
-<li class="chapter" data-level="4.3" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#descriptive-use-of-variable-names"><i class="fa fa-check"></i><b>4.3</b> Descriptive use of variable names</a></li>
-<li class="chapter" data-level="4.4" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#descriptive-and-informative-comments"><i class="fa fa-check"></i><b>4.4</b> Descriptive and informative comments</a></li>
-<li class="chapter" data-level="4.5" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#a-clear-flow-and-structure"><i class="fa fa-check"></i><b>4.5</b> A clear flow and structure</a></li>
-<li class="chapter" data-level="4.6" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#consistent-spacing"><i class="fa fa-check"></i><b>4.6</b> Consistent spacing</a></li>
-<li class="chapter" data-level="4.7" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
+<li class="chapter" data-level="3" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
+<li class="chapter" data-level="4" data-path="good.html"><a href="good.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
+<li class="chapter" data-level="4.1" data-path="good.html"><a href="good.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
+<li class="chapter" data-level="4.2" data-path="good.html"><a href="good.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
+<li class="chapter" data-level="4.3" data-path="good.html"><a href="good.html#descriptive-use-of-variable-names"><i class="fa fa-check"></i><b>4.3</b> Descriptive use of variable names</a></li>
+<li class="chapter" data-level="4.4" data-path="good.html"><a href="good.html#descriptive-and-informative-comments"><i class="fa fa-check"></i><b>4.4</b> Descriptive and informative comments</a></li>
+<li class="chapter" data-level="4.5" data-path="good.html"><a href="good.html#a-clear-flow-and-structure"><i class="fa fa-check"></i><b>4.5</b> A clear flow and structure</a></li>
+<li class="chapter" data-level="4.6" data-path="good.html"><a href="good.html#consistent-spacing"><i class="fa fa-check"></i><b>4.6</b> Consistent spacing</a></li>
+<li class="chapter" data-level="4.7" data-path="good.html"><a href="good.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
 <li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
 <li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
-<li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments-1"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
+<li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
 <li class="chapter" data-level="8.2" data-path="documentation.html"><a href="documentation.html#rmarkdown-file"><i class="fa fa-check"></i><b>8.2</b> Rmarkdown file</a></li>
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
+<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE resources</a></li>
+<li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
+<li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
+<li class="chapter" data-level="9.4" data-path="links.html"><a href="links.html#r"><i class="fa fa-check"></i><b>9.4</b> R</a></li>
 </ul></li>
 </ul>
 
@@ -162,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Good code practice</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good code practice</a>
           </h1>
         </div>
 
@@ -171,28 +180,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Good code practice</h1>
+<h1 class="title">DfE Good code practice</h1>
 <p class="author"><em>Department for Education guidance</em></p>
-<p class="date"><em>2020-05-03</em></p>
+<p class="date"><em>2020-07-23</em></p>
 </div>
 <div id="the-qa-framework" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> The QA framework</h1>
 <p>The <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf">DfE QA framework</a> was introduced in April 2019.
 The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics.</p>
+<div id="who-is-this-guide-for" class="section level2">
+<h2><span class="header-section-number">1.1</span> Who is this guide for?</h2>
+<p>This guide has been compiled to support programmers within the Department for Education to write better code that facilitates QA.</p>
+<p>It is split into several parts; chapters two to four cover the fundamentals of writing good code and maintaining a clear code structure, whilst chapters five to eight cover testing, version control and documentation and have more focus on quality assuring code. Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic.</p>
+</div>
 <div id="writing-code-for-qa" class="section level2">
-<h2><span class="header-section-number">1.1</span> Writing code for QA</h2>
-<p>There are 4 main aspects to writing high-quality code:
-1. maintaining a clear code structure
-2. testing throughout
-3. having excellent version control and
-4. providing sufficient documentation</p>
-<p>These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely <strong>Governance and Documentation</strong>, <strong>Clarity and Structure</strong> and <strong>Verification</strong>.</p>
-<p>This guidance is split into several parts; parts one and two cover the fundamentals of writing good code and maintaining a clear code structure, whilst parts three to six cover testing, version control and documentation and have more focus on quality assuring code. Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic.</p>
+<h2><span class="header-section-number">1.2</span> Writing code for QA</h2>
+<p>There are 4 main aspects to writing high-quality code:</p>
+<ol style="list-style-type: decimal">
+<li>maintaining a clear code structure</li>
+<li>testing throughout</li>
+<li>having excellent version control and</li>
+<li>providing sufficient documentation</li>
+</ol>
+<p>These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely <strong>Governance and Documentation</strong>, <strong>Clarity and structure</strong> and <strong>Verification</strong>. In particular, if implemented well, this guide will assist you in meeting good standards of clarity and structure and verification for the DfE QA framework.</p>
 </div>
 <div id="our-approach-to-writing-and-updating-this-guidance" class="section level2">
-<h2><span class="header-section-number">1.2</span> Our approach to writing and updating this guidance</h2>
-<p>Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small (a few hundred lines of code at most) and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.</p>
-<p>The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon. It is intended to be a living document and we’d very much welcome suggestions for improvements or additions. Please contact the <a href="mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice">Modelling Improvement and Assurance Unit</a> or raise an issue on <a href="https://github.com/lsunter/GoodCodingPractice/issues">Git</a>. These will be reviewed by the DfE QA working group and any approved changes will be made.</p>
+<h2><span class="header-section-number">1.3</span> Our approach to writing and updating this guidance</h2>
+<p>Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.</p>
+<p>The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon. It is intended to be a living document and we’d very much welcome suggestions for improvements or additions. Please contact the <a href="mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice">Modelling Improvement and Assurance Unit</a> or raise an issue on <a href="https://github.com/dfe-analytical-services/good-code-practice">Git</a>. These will be reviewed by the DfE QA Working Group and any approved changes will be made.</p>
 
 </div>
 </div>

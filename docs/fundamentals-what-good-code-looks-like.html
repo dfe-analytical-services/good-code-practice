@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Fundamentals: What good code looks like | Good code practice</title>
+  <title>Chapter 4 Fundamentals: What good code looks like | DfE Good code practice</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Fundamentals: What good code looks like | Good code practice" />
+  <meta property="og:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good code practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Fundamentals: What good code looks like | Good code practice" />
+  <meta name="twitter:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good code practice" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-05-03" />
+<meta name="date" content="2020-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="comments.html"/>
+<link rel="prev" href="fundamantals.html"/>
 <link rel="next" href="code-structure.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,13 +130,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.1</b> Writing code for QA</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.2</b> Our approach to writing and updating this guidance</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.3</b> Our approach to writing and updating this guidance</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html#why-writing-good-code-is-so-important"><i class="fa fa-check"></i><b>2.1</b> Why writing good code is so important</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
+<li class="chapter" data-level="3" data-path="fundamantals.html"><a href="fundamantals.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
 <li class="chapter" data-level="4" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
 <li class="chapter" data-level="4.1" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
 <li class="chapter" data-level="4.2" data-path="fundamentals-what-good-code-looks-like.html"><a href="fundamentals-what-good-code-looks-like.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
@@ -148,10 +151,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
 <li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
-<li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments-1"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
+<li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
 <li class="chapter" data-level="8.2" data-path="documentation.html"><a href="documentation.html#rmarkdown-file"><i class="fa fa-check"></i><b>8.2</b> Rmarkdown file</a></li>
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
+<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE resources</a></li>
+<li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
+<li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#coding-styles"><i class="fa fa-check"></i><b>9.3</b> Coding styles</a></li>
+<li class="chapter" data-level="9.4" data-path="links.html"><a href="links.html#r"><i class="fa fa-check"></i><b>9.4</b> R</a></li>
 </ul></li>
 </ul>
 
@@ -162,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Good code practice</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good code practice</a>
           </h1>
         </div>
 
@@ -175,12 +184,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There is no definitive style that determines if code is well written or not. There’s an excellent resource for styling R code here <a href="https://style.tidyverse.org/index.html" class="uri">https://style.tidyverse.org/index.html</a> and it’s worth noting that Rstudio comes with numerous functionalities designed to help with good code structure (see drop down menu in <code>Code</code>). But, there are several features that are consistently found in code, regardless of language, that follow the principles of good practice. Some of these are outlined in the examples below.</p>
 <div id="a-clear-and-informative-header" class="section level2">
 <h2><span class="header-section-number">4.1</span> A clear and informative Header</h2>
-<p>A header should contain, at a minimum, enough information about the code to give the reader an understanding of the task the code is attempting to carry out. It should contain the details of the original author, as well as any subsequent authors, and the dates of any key events – such as the creation date, or the date of a major modification. Headers can also contain information about data sources, libraries or packages (including version) used, or notes on any assumptions that are made in the analysis.</p>
+<p>A header should contain, at a minimum, enough information about the code to give the reader an understanding of the task the code is attempting to carry out. It should contain the details of the original author, as well as any subsequent authors, and the dates of any key events – such as the creation date, or the date of a major modification. Headers can also contain information about data sources, libraries or packages (including version) used, or notes on any assumptions that are made in the analysis. If you’re using <a href="VC.html#VC">Version Control</a> software, some of this information may be captured automatically though.</p>
 <pre><code>  # VIRTUAL COHORT Propensity Score Matching ANALYSIS – 2014 KS2    
   #
   # Written by:  Anne Analyst
-  # On:        26/11/15
-  # Last update: 31/12/15
+  # On:        26/11/19
+  # Last update: 31/12/19
   #
   # Aim:
   #  Using pupil characteristics to identify pupils in LA-maintained schools 
@@ -188,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   #  means, “have a high propensity to be” – to do this analysis we will use
   #  Propensity Score Matching.
   #
-  # Datasets: 2014 KS2 Data
+  # Datasets: 2019 KS2 Data
   # This data has been constructed from various datasets on our SQL
   # server (school census, NPD, AcademiesAndSchoolOrganisation)
   #
@@ -221,9 +230,12 @@ END IF
 <p>Choose a consistent naming convention and stick with it: never mix your conventions.
 There are several naming conventions in use, including:</p>
 <ul>
-<li>Use lowercase letters and separate words with underscores (called “snake case”). E.g. <code>country_of_birth</code></li>
-<li>Use uppercase letters at the start of each word (called “camel case”). E.g. <code>CountryOfBirth</code></li>
-<li>In certain languages, you can use spaces as separators and brackets as delineators e.g. <code>[Country of Birth]</code></li>
+<li>Use lowercase letters and separate words with underscores (called “Snake case”). E.g. <code>country_of_birth</code></li>
+<li>Use lowercase letters and separate words with hyphens (called “Kebab case”). E.g. <code>country-of-birth</code></li>
+<li>Use uppercase letters at the start of each word (called “Pascal case”). E.g. <code>CountryOfBirth</code></li>
+<li>Use uppercase letters following the first word (called “Camel Case”). E.g. <code>countryOfBirth</code></li>
+<li>In certain languages, you can use spaces as separators and brackets as delineators, e.g. <code>[Country of Birth]</code>
+But, it’s important to note that spaces can lead to issues in some instances so be sure this convention is appropriate to the software you are using before you start. For example, you can do this in R, but you can’t reference the object in a function.</li>
 </ul>
 <p>No one is better than any other – the point is to choose one and use it <em>consistently</em> in your code. If you are modifying someone else’s code that has already established a convention, <em>stick to that convention</em>, even if it isn’t the one you’d usually choose.</p>
 </div>
@@ -323,7 +335,7 @@ weight_avg &lt;- function(year, year_grp) {
           </div>
         </div>
       </div>
-<a href="comments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fundamantals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="code-structure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

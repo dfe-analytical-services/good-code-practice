@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Advanced:  Optimising code structure{#code_structure}</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Advanced:  Optimising code structure{#code_structure}</h1>
+
+<p>Complex analytical projects often take up thousands of lines of code that execute very different tasks such as data cleaning, analysis and output production. As we&#39;ve already outlined, breaking these down into separate, meaningful chunks is essential both for the author&#39;s ease of use and to help quality assurers quickly get a grasp on what the code is doing. For small to medium-sized projects it can be sufficient to break down the code into named sections within a same file. Each section carries out a single, well-defined task. The example below shows what this can look like in a basic script.  </p>
+
+<pre><code class="r badCode"># Example of good code structure in a basic R script
+# Code sections were created using Rstudio&#39;s shortcut ctrl+shift+r
+
+# Load libraries ----------
+library(tidyverse)
+library(DBI)
+library(odbc)
+library(broom)
+
+# Fetch data from SQL table ----------
+some_data_set &lt;- tbl(some_connection, &quot;some_SQL_table&quot;) %&gt;%
+  collect()
+
+# Remove missing data----------
+some_data_set &lt;- some_data_set %&gt;% 
+    omit.na()
+
+# Run linear model ----------
+some_model &lt;- lm(y ~ x, data = some_data_set)
+
+# Extract coefficients from model ----------
+some_model_fit &lt;- broom::tidy(some_model)
+</code></pre>
+
+<p>For larger projects, it is best practice to split the raw code across multiple files. The script in each file executes a single step of the overall analytical pipeline - a practice known as <strong>modular programming</strong>. Files should have meaningful names and be numbered to reflect the chronological order they must be run in. It is good practice to keep these files together in a dedicated <code>Scripts</code> folder. Beyond file numbering, a convenient way to ensure a quality assurer will run these scripts in the correct order is to provide a master script from which each component script is called in the correct sequence.  In R, code or data described in separate files can be called up using the <code>source()</code> function. R Shiny applications are very commonly written in a modular way, and Rstudio makes it easy to set them up as separate <strong>User Interface</strong> and <strong>Server</strong> files from the start, using <code>File &gt; New File &gt; Shiny web App &gt; Application type &gt; multiple files</code>.</p>
+
+<pre><code class="r badCode"># Master script sourcing individual
+# component scripts. All scripts are kept in the Scripts folder
+
+# Run the master script to execute each step 
+# one by one in the correct order
+
+source(&quot;Scripts/01_fetch_data.R&quot;)
+source(&quot;Scripts/02_clean_data.R&quot;)
+source(&quot;Scripts/03_run_all_models.R&quot;)
+source(&quot;Scripts/04_create_charts.R&quot;)
+source(&quot;Scripts/05_produce_and_save_report.R&quot;)
+</code></pre>
+
+</body>
+
+</html>
+

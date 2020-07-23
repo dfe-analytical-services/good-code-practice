@@ -1,0 +1,47 @@
+# Advanced:  Optimising code structure{#code_structure}
+Complex analytical projects often take up thousands of lines of code that execute very different tasks such as data cleaning, analysis and output production. As we've already outlined, breaking these down into separate, meaningful chunks is essential both for the author's ease of use and to help quality assurers quickly get a grasp on what the code is doing. For small to medium-sized projects it can be sufficient to break down the code into named sections within a same file. Each section carries out a single, well-defined task. The example below shows what this can look like in a basic script.  
+
+
+```{.r .badCode}
+# Example of good code structure in a basic R script
+# Code sections were created using Rstudio's shortcut ctrl+shift+r
+
+# Load libraries ----------
+library(tidyverse)
+library(DBI)
+library(odbc)
+library(broom)
+
+# Fetch data from SQL table ----------
+some_data_set <- tbl(some_connection, "some_SQL_table") %>%
+  collect()
+
+# Remove missing data----------
+some_data_set <- some_data_set %>% 
+    omit.na()
+
+# Run linear model ----------
+some_model <- lm(y ~ x, data = some_data_set)
+
+# Extract coefficients from model ----------
+some_model_fit <- broom::tidy(some_model)
+```
+
+For larger projects, it is best practice to split the raw code across multiple files. The script in each file executes a single step of the overall analytical pipeline - a practice known as **modular programming**. Files should have meaningful names and be numbered to reflect the chronological order they must be run in. It is good practice to keep these files together in a dedicated `Scripts` folder. Beyond file numbering, a convenient way to ensure a quality assurer will run these scripts in the correct order is to provide a master script from which each component script is called in the correct sequence.  In R, code or data described in separate files can be called up using the `source()` function. R Shiny applications are very commonly written in a modular way, and Rstudio makes it easy to set them up as separate **User Interface** and **Server** files from the start, using `File > New File > Shiny web App > Application type > multiple files`.
+
+
+
+```{.r .badCode}
+# Master script sourcing individual
+# component scripts. All scripts are kept in the Scripts folder
+
+# Run the master script to execute each step 
+# one by one in the correct order
+
+source("Scripts/01_fetch_data.R")
+source("Scripts/02_clean_data.R")
+source("Scripts/03_run_all_models.R")
+source("Scripts/04_create_charts.R")
+source("Scripts/05_produce_and_save_report.R")
+```
+

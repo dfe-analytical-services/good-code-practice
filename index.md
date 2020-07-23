@@ -1,7 +1,7 @@
 ---
 title: "DfE Good code practice"
 author: "Department for Education guidance"
-date: "`r Sys.Date()`"
+date: "2020-07-23"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
