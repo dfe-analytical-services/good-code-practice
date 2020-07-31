@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Advanced: Version control | DfE Good code practice</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="description" content="DfE Good Code Practide guide." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Advanced: Version control | DfE Good code practice" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="DfE Good Code Practide guide." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 7 Advanced: Version control | DfE Good code practice" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="DfE Good Code Practide guide." />
   
 
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-07-24" />
+<meta name="date" content="2020-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
-<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE resources</a></li>
+<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-and-other-government-department-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE and Other Government Department resources</a></li>
 <li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
 <li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
 <li class="chapter" data-level="9.4" data-path="links.html"><a href="links.html#r"><i class="fa fa-check"></i><b>9.4</b> R</a></li>
@@ -181,8 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="VC" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Advanced: Version control</h1>
-<p>Version control is critically important to writing robust, reproducible code, and is highly recommended regardless of QA requirements. At its most basic, it means keeping track of changes made to code over time. Version control software like <code>Git</code> take code snapshots and store them either locally or remotely. Purely local version control with <code>Git</code> offers fewer functionalities but is still extremely useful in reducing the risk of code-breaking changes as analysts can backtrack to previous working versions of their code. Remote version control requires the use of a Git repository hosting service such as Github or Azure DevOps. These are online platforms where git repositories can be saved and synched with their local counterparts. This is a powerful way to write code collaboratively, with QA built-in the code writing process.</p>
-<p>A thorough guide on version control using Git and DevOps for DfE analysts can be found <a href="https://dfe-analytical-services.github.io/vsts-for-analysis/">here</a>. From a QA point of view, an ideal situation is where the author of the code and their quality assurer collaborate on the same <code>Git</code> project. Concretely, the analyst creates a <strong>pull request</strong> to merge their code changes into a clean master version of the code. The approver then evaluates whether the change is appropriate and either approves or asks for edits to be made. This is an ideal scenario and perhaps recommended for business critical work. In most cases, the approver will have first sighting of the code after the project is completed. In that case, version control logs can still be saved to file and shared.</p>
+<p>Version control is critically important to writing robust, reproducible code, and is highly recommended regardless of QA requirements. At its most basic, it means keeping track of changes made to code over time. Version control software like <code>Git</code> take code snapshots and store them either locally or remotely. Purely local version control with <code>Git</code> offers fewer functionalities but is still extremely useful in reducing the risk of code-breaking changes as analysts can backtrack to previous working versions of their code. Remote version control requires the use of a Git repository hosting service such as Github or Azure DevOps (previously known as VSTS). These are online platforms where git repositories can be saved and synched with their local counterparts. This is a powerful way to write code collaboratively, with QA built-in the code writing process.</p>
+<p>A guide on version control using Git and DevOps for DfE analysts can be found <a href="https://dfe-analytical-services.github.io/vsts-for-analysis/">here</a> but watch this space for an updated version in the near future. From a QA point of view, an ideal situation is where the author of the code and their quality assurer collaborate on the same <code>Git</code> project. Concretely, the analyst creates a <strong>pull request</strong> to merge their code changes into a clean master version of the code. The approver then evaluates whether the change is appropriate and either approves or asks for edits to be made. This is an ideal scenario and perhaps recommended for business critical work. In most cases, the approver will have first sighting of the code after the project is completed. In that case, version control logs can still be saved to file and shared.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb12-1"><a href="VC.html#cb12-1"></a><span class="co"># open a shell from Rstudio Tools</span></span>
 <span id="cb12-2"><a href="VC.html#cb12-2"></a><span class="co"># dropdown menu. Logs can be formatted</span></span>
 <span id="cb12-3"><a href="VC.html#cb12-3"></a><span class="co"># in many different ways. There are </span></span>

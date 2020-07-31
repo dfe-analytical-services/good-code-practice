@@ -2,7 +2,7 @@
 
 All of the links mentioned throughout this document, plus some additional reading and resources are here.
 
-## Internal DfE resources
+## Internal DfE and Other Government Department resources
 
 * [DfE QA framework](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/Quality-Assurance.aspx)
 * [Git and DevOps Guide](https://dfe-analytical-services.github.io/vsts-for-analysis/)
@@ -12,11 +12,16 @@ All of the links mentioned throughout this document, plus some additional readin
 * [Data Engineering Division T-SQL coding standards](https://teams.microsoft.com/l/file/5F396754-1495-49C8-AF19-E00498D2AF2A?tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9&fileType=docx&objectUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN%2FShared%20Documents%2FAll%20analysts%2FTSQL%20Coding%20Standards.docx&baseUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN&serviceName=teams&threadId=19:62586ff36a9046eb9615668635ef3f8b@thread.skype&groupId=6572094f-43a3-4537-bcf0-fc27dc6557ed)
 * [FE R and SQL guide](https://educationgovuk.sharepoint.com/sites/DAN/Shared%20Documents/DfE%20Data%20Science/2020-04_coding-best-practice-guide.html)
 * [Statistics Production Guidance](https://rsconnect/rsc/stats-production-guidance/)
+* [DfE Data Warehouse Wiki - FE](https://educationgovuk.sharepoint.com/sites/lveefa00001/efawiki/Data%20Warehouse%20Wiki.aspx)
+* [ONS QA of code](https://bookdown.org/joshuah40/qa_code/introduction.html)
 
 ## Testing
+* [Automated testing with testthat](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/)
 * [TestThat blog](https://katherinemwood.github.io/post/testthat/)
 * [Hadley Wickham - Testing](http://r-pkgs.had.co.nz/tests.html)
+* [Functional programming and unit testing](https://b-rodrigues.github.io/fput/unit-testing.html#unit-testing-with-the-testthat-package)
 * [Unit testing in R](https://billster45.github.io/rapid_r_data_vis_book/intro.html#qa-and-unit-tests)
+* [Pytest](https://docs.pytest.org/en/latest/)
 
 ## Style Guides
 * [R Style guide](https://style.tidyverse.org/index.html)

@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Advanced: Testing code | DfE Good code practice</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="description" content="DfE Good Code Practide guide." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Advanced: Testing code | DfE Good code practice" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="DfE Good Code Practide guide." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 6 Advanced: Testing code | DfE Good code practice" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="DfE Good Code Practide guide." />
   
 
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-07-24" />
+<meta name="date" content="2020-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
-<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE resources</a></li>
+<li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-and-other-government-department-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE and Other Government Department resources</a></li>
 <li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
 <li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
 <li class="chapter" data-level="9.4" data-path="links.html"><a href="links.html#r"><i class="fa fa-check"></i><b>9.4</b> R</a></li>
@@ -204,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-14"><a href="testing.html#cb9-14"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span>
 <span id="cb9-15"><a href="testing.html#cb9-15"></a><span class="co"># returns error message</span></span>
 <span id="cb9-16"><a href="testing.html#cb9-16"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
-<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as ‘unit testing’. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>). Although most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a>.</p>
+<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as ‘unit testing’. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>). Although most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> and <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of a specific piece of code - typically a function. <code>testthat</code> provides many functionalities to define expectactions - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing <strong>context</strong> are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="testing.html#cb10-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
 <span id="cb10-2"><a href="testing.html#cb10-2"></a></span>
