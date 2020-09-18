@@ -57,6 +57,15 @@ As this is a chapter about testing code, we are only going to cover unit testing
 
 ### Unit testing
 
+Unit testing seeks to test every distinct component within your code to enable to you isolate specific areas that may be introducing errors. If you have written you code using functions, it is sometimes easier to think of this as testing each specific function.
+
+One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors:
+
+* If you test a function relying on output from previous functions and that test throws an error, you do not immediately know which of the functions (or units) caused the error and therefore it is not a unit test.
+* If you test a function relying on data from a live source (e.g SQL), it is possible your data could change and cause you test to fail without your function (unit) having any issues so this is also not a unit test.
+
+To write a good set of unit tests, you need to think about the different types of input (e.g. positive values, zero values) your function may receive, define some fixed inputs to cover these and the write your tests to ensure the different cases are handled correctly.
+
 this is commonly referred to as 'unit testing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)). Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
 
 In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
