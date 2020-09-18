@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-09-03" />
+<meta name="date" content="2020-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -149,7 +148,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="good.html"><a href="good.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
-<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a></li>
+<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a><ul>
+<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
+<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
+<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalise-testing"><i class="fa fa-check"></i><b>6.3</b> Formalise testing</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
 <li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
 <li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
@@ -159,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
 <li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-and-other-government-department-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE and Other Government Department resources</a></li>
-<li class="chapter" data-level="9.2" data-path="testing.html"><a href="testing.html#testing"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
+<li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
 <li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
 <li class="chapter" data-level="9.4" data-path="links.html"><a href="links.html#r"><i class="fa fa-check"></i><b>9.4</b> R</a></li>
 </ul></li>
@@ -186,9 +189,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>console tests</li>
 <li>in-script testing</li>
-<li>unit testing (using tools such as <code>testthat</code> in R)</li>
+<li>formalised testing procedures, as are applied in software development
+<ul>
+<li>unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R)</li>
+<li>integration testing (tests the correct flow of data through the components)</li>
+<li>system testing (tests the overall outputs make sense)</li>
+<li>acceptance testing (tests whether or not the work meets its objectives)</li>
+</ul></li>
 </ul>
-<p>Testing code within the R console is not recommended as it leaves no trace or records of what has been checked. In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from <code>print()</code> statements, to <code>base</code> functions <code>stop()</code> and <code>stopfinot()</code>, to functions from dedicated packages such as <code>assertthat</code> or <code>testit</code>. Examples are shown below.</p>
+<div id="console-tests" class="section level2">
+<h2><span class="header-section-number">6.1</span> Console tests</h2>
+<p>Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.</p>
+</div>
+<div id="in-script-testing" class="section level2">
+<h2><span class="header-section-number">6.2</span> In-script testing</h2>
+<p>In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from <code>print()</code> statements, to <code>base</code> functions <code>stop()</code> and <code>stopfinot()</code>, to functions from dedicated packages such as <code>assertthat</code> or <code>testit</code>. Examples are shown below.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb1-1"><a href="testing.html#cb1-1"></a><span class="co"># This code snippet creates a function that</span></span>
 <span id="cb1-2"><a href="testing.html#cb1-2"></a><span class="co"># returns the maximum value of a vector</span></span>
 <span id="cb1-3"><a href="testing.html#cb1-3"></a><span class="co"># of numbers. The function contains </span></span>
@@ -205,6 +220,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="testing.html#cb1-14"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span>
 <span id="cb1-15"><a href="testing.html#cb1-15"></a><span class="co"># returns error message</span></span>
 <span id="cb1-16"><a href="testing.html#cb1-16"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
+</div>
+<div id="formalise-testing" class="section level2">
+<h2><span class="header-section-number">6.3</span> Formalise testing</h2>
 <p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as ‘unit testing’. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>). Although most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of a specific piece of code - typically a function. <code>testthat</code> provides many functionalities to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing <strong>context</strong> are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="testing.html#cb2-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
@@ -236,6 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-9"><a href="testing.html#cb3-9"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occured.</p>
 
+</div>
 </div>
             </section>
 
