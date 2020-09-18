@@ -255,25 +255,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="testthat" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> testthat</h3>
-<p>Although most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
-<p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of a specific piece of code - typically a function. <code>testthat</code> provides many functionalities to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing <strong>context</strong> are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity.</p>
+<p>The <code>testthat</code> package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
+<p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of your function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. It is good practice to save tests relating to the different parts of your code in different files, all saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="testing.html#cb2-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
 <span id="cb2-2"><a href="testing.html#cb2-2"></a></span>
-<span id="cb2-3"><a href="testing.html#cb2-3"></a><span class="co"># Define context</span></span>
-<span id="cb2-4"><a href="testing.html#cb2-4"></a><span class="kw">context</span>(<span class="st">&quot;checking data integrity&quot;</span>)</span>
-<span id="cb2-5"><a href="testing.html#cb2-5"></a></span>
-<span id="cb2-6"><a href="testing.html#cb2-6"></a><span class="co"># The first test checks that the data set</span></span>
-<span id="cb2-7"><a href="testing.html#cb2-7"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
-<span id="cb2-8"><a href="testing.html#cb2-8"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
-<span id="cb2-9"><a href="testing.html#cb2-9"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
-<span id="cb2-10"><a href="testing.html#cb2-10"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
-<span id="cb2-11"><a href="testing.html#cb2-11"></a>})</span>
-<span id="cb2-12"><a href="testing.html#cb2-12"></a></span>
-<span id="cb2-13"><a href="testing.html#cb2-13"></a><span class="co"># The second test checks that the maximum value</span></span>
-<span id="cb2-14"><a href="testing.html#cb2-14"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
-<span id="cb2-15"><a href="testing.html#cb2-15"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
-<span id="cb2-16"><a href="testing.html#cb2-16"></a>  <span class="kw">expect_lt</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
-<span id="cb2-17"><a href="testing.html#cb2-17"></a>})</span></code></pre></div>
+<span id="cb2-3"><a href="testing.html#cb2-3"></a><span class="co"># The first test checks that the data set</span></span>
+<span id="cb2-4"><a href="testing.html#cb2-4"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
+<span id="cb2-5"><a href="testing.html#cb2-5"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
+<span id="cb2-6"><a href="testing.html#cb2-6"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
+<span id="cb2-7"><a href="testing.html#cb2-7"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
+<span id="cb2-8"><a href="testing.html#cb2-8"></a>})</span>
+<span id="cb2-9"><a href="testing.html#cb2-9"></a></span>
+<span id="cb2-10"><a href="testing.html#cb2-10"></a><span class="co"># The second test checks that the maximum value</span></span>
+<span id="cb2-11"><a href="testing.html#cb2-11"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
+<span id="cb2-12"><a href="testing.html#cb2-12"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
+<span id="cb2-13"><a href="testing.html#cb2-13"></a>  <span class="kw">expect_lt</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
+<span id="cb2-14"><a href="testing.html#cb2-14"></a>})</span></code></pre></div>
 <p>Expectations are tested using the <code>test_dir()</code> function, which takes the path to the testing directory as an argument.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb3-1"><a href="testing.html#cb3-1"></a><span class="kw">library</span>(testthat)</span>
 <span id="cb3-2"><a href="testing.html#cb3-2"></a><span class="kw">library</span>(tidyverse)</span>
@@ -284,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="testing.html#cb3-7"></a><span class="co"># test expectations and examine outputs</span></span>
 <span id="cb3-8"><a href="testing.html#cb3-8"></a><span class="co"># In this case, all tests are OK</span></span>
 <span id="cb3-9"><a href="testing.html#cb3-9"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
-<p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occured.</p>
+<p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.</p>
 </div>
 <div id="testing-shiny-apps" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Testing Shiny apps</h3>

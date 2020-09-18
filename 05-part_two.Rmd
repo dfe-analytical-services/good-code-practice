@@ -73,15 +73,12 @@ To implement unit tests, it is generally easiest to use a unit testing framework
 
 ### testthat
 
-Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
+The `testthat` package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
 
-In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
+In `testthat`, tests are called **expectations**. These spell out the expected behaviour of your function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). It is good practice to save tests relating to the different parts of your code in different files, all saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
 
 ```{r testthat, eval = FALSE}
 # This file is stored in a directory called "testing_directory" 
-
-# Define context
-context("checking data integrity")
 
 # The first test checks that the data set
 # "mydata" has a a single column and 100 rows
@@ -111,7 +108,7 @@ mydata <- tibble(some_numbers = runif(100))
 test_dir("testing_directory")
 ```
 
-`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occured.
+`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.
 
 ### Testing Shiny apps
 
