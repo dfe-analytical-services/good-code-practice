@@ -133,3 +133,7 @@ Additional functionality is available within R to support testing of Shiny apps.
 
 
 ### Test driven development
+
+"Test driven development" describes a way of working in software where tests are written prior to the code being written. This forces developers to sit down and work out what working code encompasses before the write it and avoids any retrofitting of tests to match achieved output. If you have a strong QA plan, you could also implement this for analysis. As testing of each new bit of code happens immediately after creation it also reduced the risk of something faulty getting heavily baked in.
+
+As with testing, there are plenty of resources on the internet such as [this one](https://www.guru99.com/test-driven-development.html).
