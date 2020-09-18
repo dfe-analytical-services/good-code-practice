@@ -75,10 +75,31 @@ To implement unit tests, it is generally easiest to use a unit testing framework
 
 The `testthat` package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
 
-In `testthat`, tests are called **expectations**. These spell out the expected behaviour of your function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). It is good practice to save tests relating to the different parts of your code in different files, all saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
+In `testthat`, tests are called **expectations**. These spell out the expected behaviour of your function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). It is good practice to save tests relating to the different parts of your code in different files, all saved within a dedicated testing directory. Below is an example of testing a simple function.
 
-```{r testthat, eval = FALSE}
+Firstly we need to have a defined function to test:
+```{r testing_function, eval=TRUE}
+# Create a simple function to demonstrate testing approach
+library(tibble)
+
+# create a data frame of random numbers
+create_random_numbers_dataframe <- function(n){
+  tibble(some_numbers = runif(n))
+}
+```
+
+Then we can defined some tests for it:
+```{r testthat, eval = FALSE, warning=FALSE}
 # This file is stored in a directory called "testing_directory" 
+# Need the testthat package
+library(testthat)
+
+# Need to source our function
+source("file_where_function_saved.R")
+
+# Need to run our function to be able to test its impact
+# Could also do this within tests if we wanted to test different cases
+mydata <- create_random_numbers_dataframe(100)
 
 # The first test checks that the data set
 # "mydata" has a a single column and 100 rows
@@ -90,19 +111,13 @@ test_that('data dimensions correct', {
 # The second test checks that the maximum value
 # of the variable "some_numbers" does not exceed 1
 test_that('no value greater than 1', {
-  expect_lt(max(mydata$some_numbers), 1)
+  expect_lte(max(mydata$some_numbers), 1)
 })
 
 ```
 
-Expectations are tested using the `test_dir()` function, which takes the path to the testing directory as an argument. 
+Expectations are tested using the `test_dir()` function, which takes the path to the testing directory as an argument:
 ```{r testing, message = FALSE, eval = FALSE, class.source = "badCode"}
-library(testthat)
-library(tidyverse)
-
-# create a data frame
-mydata <- tibble(some_numbers = runif(100))
-
 # test expectations and examine outputs
 # In this case, all tests are OK
 test_dir("testing_directory")
