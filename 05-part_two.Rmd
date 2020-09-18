@@ -39,8 +39,22 @@ get_max(c("a", "b", "c"))
 ```
 
 
-## Formalise testing
-Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as 'unit testing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)). Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
+## Formalised testing
+Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base).
+
+As set out above, there are often four types of software testing covered:
+    * unit testing (tests the different components or "units" of code using tools such as `testthat` in R)
+    * integration testing (tests the correct flow of data through the components)
+    * system testing (tests the overall outputs make sense)
+    * acceptance testing (tests whether or not the work meets its objectives)
+
+Software testing can make a distinction between functional and non-functional testing too. In the context of an analytical model, a functional test would be one which tests the model produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
+
+For more information, see [here](https://www.guru99.com/levels-of-testing.html) or use your favourite search engine to explore the topic.
+
+### Unit testing
+
+this is commonly referred to as 'unit testing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)). Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
 
 In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
 
