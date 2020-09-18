@@ -4,11 +4,7 @@ From a coding point of view, testing covers the requirements spelled out in the 
 
 - console tests 
 - in-script testing
-- formalised testing procedures, as are applied in software development
-    * unit testing (tests the different components or "units" of code using tools such as `testthat` in R)
-    * integration testing (tests the correct flow of data through the components)
-    * system testing (tests the overall outputs make sense)
-    * acceptance testing (tests whether or not the work meets its objectives)
+- formalised testing procedures, such as unit testing (tests the different components or "units" of code using tools such as `testthat` in R)
 
 ## Console tests
 Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.
@@ -40,17 +36,24 @@ get_max(c("a", "b", "c"))
 
 
 ## Formalised testing
-Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base).
+Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between a model and an IT product so we'll include some specific comments about these.
 
-As set out above, there are often four types of software testing covered:
-    * unit testing (tests the different components or "units" of code using tools such as `testthat` in R)
-    * integration testing (tests the correct flow of data through the components)
-    * system testing (tests the overall outputs make sense)
-    * acceptance testing (tests whether or not the work meets its objectives)
+There are often four types of software testing covered:
+
+* Unit testing (tests the different components or "units" of code using tools such as `testthat` in R).
+* Integration testing (tests the correct flow of data through the components).
+* System testing (tests the overall outputs make sense).
+* Acceptance testing (tests whether or not the work meets its objectives).
 
 Software testing can make a distinction between functional and non-functional testing too. In the context of an analytical model, a functional test would be one which tests the model produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
 
 For more information, see [here](https://www.guru99.com/levels-of-testing.html) or use your favourite search engine to explore the topic.
+
+As this is a chapter about testing code, we are only going to cover unit testing in more detail. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
+
+* Integration testing tests correct data flow, transformations and interactions between different model components.
+* System testing relates to verification tests on the overall outputs.
+* Acceptance testing relates to the validation pillar of the QA framework.
 
 ### Unit testing
 
@@ -92,5 +95,8 @@ mydata <- tibble(some_numbers = runif(100))
 test_dir("testing_directory")
 ```
 
-`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occured.  
+`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occured.
 
+### Testing Shiny apps
+
+### Test driven development

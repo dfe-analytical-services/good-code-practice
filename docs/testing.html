@@ -153,6 +153,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
 <li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.1</b> Unit testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.2</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.3</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -191,13 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>console tests</li>
 <li>in-script testing</li>
-<li>formalised testing procedures, as are applied in software development
-<ul>
-<li>unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R)</li>
-<li>integration testing (tests the correct flow of data through the components)</li>
-<li>system testing (tests the overall outputs make sense)</li>
-<li>acceptance testing (tests whether or not the work meets its objectives)</li>
-</ul></li>
+<li>formalised testing procedures, such as unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R)</li>
 </ul>
 <div id="console-tests" class="section level2">
 <h2><span class="header-section-number">6.1</span> Console tests</h2>
@@ -225,14 +221,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
-<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base).</p>
-<p>As set out above, there are often four types of software testing covered:
-* unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R)
-* integration testing (tests the correct flow of data through the components)
-* system testing (tests the overall outputs make sense)
-* acceptance testing (tests whether or not the work meets its objectives)</p>
+<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between a model and an IT product so we’ll include some specific comments about these.</p>
+<p>There are often four types of software testing covered:</p>
+<ul>
+<li>Unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R).</li>
+<li>Integration testing (tests the correct flow of data through the components).</li>
+<li>System testing (tests the overall outputs make sense).</li>
+<li>Acceptance testing (tests whether or not the work meets its objectives).</li>
+</ul>
 <p>Software testing can make a distinction between functional and non-functional testing too. In the context of an analytical model, a functional test would be one which tests the model produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
 <p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or use your favourite search engine to explore the topic.</p>
+<p>As this is a chapter about testing code, we are only going to cover unit testing in more detail. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
+<ul>
+<li>Integration testing tests correct data flow, transformations and interactions between different model components.</li>
+<li>System testing relates to verification tests on the overall outputs.</li>
+<li>Acceptance testing relates to the validation pillar of the QA framework.</li>
+</ul>
 <div id="unit-testing" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Unit testing</h3>
 <p>this is commonly referred to as ‘unit testing’. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>). Although most of its documentation and functionalities focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
@@ -265,6 +269,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-8"><a href="testing.html#cb3-8"></a><span class="co"># In this case, all tests are OK</span></span>
 <span id="cb3-9"><a href="testing.html#cb3-9"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occured.</p>
+</div>
+<div id="testing-shiny-apps" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Testing Shiny apps</h3>
+</div>
+<div id="test-driven-development" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Test driven development</h3>
 
 </div>
 </div>
