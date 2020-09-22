@@ -49,7 +49,7 @@ Software testing can make a distinction between functional and non-functional te
 
 For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
 
-As this is a chapter about testing code, we are only going to cover unit testing in more detail. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
+As this is a chapter about testing code, we going to focus primarily on unit testing. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
 
 * Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.
 * System testing relates to verification tests on the overall outputs.
