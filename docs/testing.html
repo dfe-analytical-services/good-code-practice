@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-09-18" />
+<meta name="date" content="2020-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -190,7 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="testing" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Advanced: Testing code</h1>
-<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of model assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:</p>
+<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:</p>
 <ul>
 <li>console tests</li>
 <li>in-script testing</li>
@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
-<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a model (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between a model and an IT product so we’ll include some specific comments about these.</p>
+<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product so we’ll include some specific comments about these.</p>
 <p>There are often four types of software testing covered:</p>
 <ul>
 <li>Unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R).</li>
@@ -230,11 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>System testing (tests the overall outputs make sense).</li>
 <li>Acceptance testing (tests whether or not the work meets its objectives).</li>
 </ul>
-<p>Software testing can make a distinction between functional and non-functional testing too. In the context of an analytical model, a functional test would be one which tests the model produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
+<p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
 <p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or use your favourite search engine to explore the topic.</p>
 <p>As this is a chapter about testing code, we are only going to cover unit testing in more detail. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
 <ul>
-<li>Integration testing tests correct data flow, transformations and interactions between different model components.</li>
+<li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
 <li>System testing relates to verification tests on the overall outputs.</li>
 <li>Acceptance testing relates to the validation pillar of the QA framework.</li>
 </ul>
@@ -297,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="testing-shiny-apps" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Testing Shiny apps</h3>
-<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of modeling work.</p>
+<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analysis work.</p>
 <p>Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
 </div>
 <div id="test-driven-development" class="section level3">
