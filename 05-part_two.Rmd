@@ -66,7 +66,7 @@ One of the key principles of unit testing is that each unit (or function) should
 
 To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and the write tests to ensure the different cases are handled correctly.
 
-To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be writen separate files and then all tests run at once, returning success/failure feedback.
+To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written separate files and then all tests run at once, returning success/failure feedback.
 
 * The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)).
 * The `pytest` framework offers a similar resource for Python (more details [here](https://docs.pytest.org/en/latest/))
@@ -75,7 +75,7 @@ To implement unit tests, it is generally easiest to use a unit testing framework
 
 The `testthat` package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
 
-In `testthat`, tests are called **expectations**. These spell out the expected behaviour of the function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). It is good practice to save tests relating to the different code files in different test files, all saved within a dedicated testing directory. Below is an example of testing a simple function.
+In `testthat`, tests are called **expectations**. These spell out the expected behaviour of the function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). It is good practice to save tests relating to the [different code files](#code_structure) in different test files, all saved within a dedicated testing directory. Below is an example of testing a simple function.
 
 Firstly we need to have a defined function to test:
 ```{r testing_function, eval=TRUE}
