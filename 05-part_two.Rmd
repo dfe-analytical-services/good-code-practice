@@ -40,10 +40,10 @@ Beyond in-script tests, an analyst may decide to take a more formal approach to 
 
 There are often four types of software testing covered:
 
-* Unit testing (tests the different components or "units" of code using tools such as `testthat` in R).
-* Integration testing (tests the correct flow of data through the components).
-* System testing (tests the overall outputs make sense).
-* Acceptance testing (tests whether or not the work meets its objectives).
+* Unit testing - tests the different components or "units" of code using tools such as `testthat` in R.
+* Integration testing - tests the correct flow of data through the components.
+* System testing - tests the overall outputs make sense.
+* Acceptance testing - tests whether or not the work meets its objectives.
 
 Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
 
