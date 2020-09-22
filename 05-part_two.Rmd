@@ -45,9 +45,7 @@ There are often four types of software testing covered:
 * System testing - tests the overall outputs make sense.
 * Acceptance testing - tests whether or not the work meets its objectives.
 
-Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
-
-For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
+Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out). For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
 
 As this is a chapter about testing code, we going to focus primarily on unit testing. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
 
@@ -127,13 +125,9 @@ test_dir("testing_directory")
 
 ### Testing Shiny apps
 
-R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analysis work.
-
-Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found [here](https://shiny.rstudio.com/articles/integration-testing.html).
+R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analysis work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found [here](https://shiny.rstudio.com/articles/integration-testing.html).
 
 
 ### Test driven development
 
-"Test driven development" describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in.
-
-As with testing, there are plenty of resources on the internet such as [this one](https://www.guru99.com/test-driven-development.html).
+"Test driven development" describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in. As with testing, there are plenty of resources on the internet such as [this one](https://www.guru99.com/test-driven-development.html).
