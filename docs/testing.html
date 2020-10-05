@@ -231,7 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
 <p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
 <p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.</p>
-<p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written separate files and then all tests run at once, returning success/failure feedback.</p>
+<p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.</p>
 <ul>
 <li>The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>).</li>
 <li>The <code>pytest</code> framework offers a similar resource for Python (more details <a href="https://docs.pytest.org/en/latest/">here</a>)</li>
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-2"><a href="testing.html#cb4-2"></a>create_random_numbers_dataframe &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
 <span id="cb4-3"><a href="testing.html#cb4-3"></a>  <span class="kw">tibble</span>(<span class="dt">some_numbers =</span> <span class="kw">runif</span>(n))</span>
 <span id="cb4-4"><a href="testing.html#cb4-4"></a>}</span></code></pre></div>
-<p>Then we can defined some tests for it:</p>
+<p>Then we can define some tests for it:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="testing.html#cb5-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
 <span id="cb5-2"><a href="testing.html#cb5-2"></a><span class="co"># Need the testthat package</span></span>
 <span id="cb5-3"><a href="testing.html#cb5-3"></a><span class="kw">library</span>(testthat)</span>

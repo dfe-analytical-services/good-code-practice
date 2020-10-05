@@ -49,7 +49,7 @@ One of the key principles of unit testing is that each unit (or function) should
 
 To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.
 
-To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written separate files and then all tests run at once, returning success/failure feedback.
+To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.
 
 * The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)).
 * The `pytest` framework offers a similar resource for Python (more details [here](https://docs.pytest.org/en/latest/))
@@ -83,7 +83,7 @@ create_random_numbers_dataframe <- function(n){
 }
 ```
 
-Then we can defined some tests for it:
+Then we can define some tests for it:
 ```{r testthat, eval = FALSE, warning=FALSE}
 # This file is stored in a directory called "testing_directory" 
 # Need the testthat package
