@@ -3,7 +3,7 @@
 From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing.  These test the different components of "units" of code using tools such as testthat in R.
 
 ## Console tests
-Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.
+Testing code within the R (or Python) console is not recommended as it leaves no trace or records of what has been checked.
 
 ## In-script testing
 In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from `print()` statements, to `base` functions `stop()` and `stopfinot()`, to functions from dedicated packages such as `assertthat` or `testit`. Examples are shown below. 
@@ -30,6 +30,7 @@ get_max(c("a", "b", "c"))
 
 ```
 
+In Python similar approaches can be used. There is also a [print function](https://www.w3schools.com/python/ref_func_print.asp) and exceptions provide a way returning an error if a specified condition is met, much like the functionality offered by R's `stop()` and `stopifnot()` functions. [Here](https://www.w3schools.com/python/gloss_python_raise.asp) is information about how to raise exceptions and [here](https://docs.python.org/3/library/exceptions.html) is more technical, detailed information about the different types of exceptions.
 
 ## Formalised testing
 Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.
@@ -124,6 +125,13 @@ test_dir("testing_directory")
 
 R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found [here](https://shiny.rstudio.com/articles/integration-testing.html).
 
+### pytest
+
+`pytest` provides similar functionality for Python as testthat does for R. When getting started with `pytest`, note that `pytest` implements a test discovery method to find relevant tests. Unless specified otherwise, test files are assumed to be in the current working directory or a sub-folder thereof. It is possible to setup `testpaths` to specify different file paths for test files if this better fits the project structure. Within these folders, pytest will discover tests in Python files named as `test_*.py` or `*_test.py`. The tests themselves then need to be functions named `test_*` to be detected as tests.
+
+Whereas `testthat` has functions to define its expectations, `pytest` makes use of Pythons `assert` statement to specify the condition the test expects to be met.
+
+Python IDEs can come with integration for `pytest`, making it possible to run tests at the click of the button. If you are using Spyder see [here](https://www.spyder-ide.org/blog/introducing-unittest-plugin/) or PyCharm see [here](https://www.jetbrains.com/help/pycharm/pytest.html).
 
 ### Test driven development
 

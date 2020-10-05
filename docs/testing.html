@@ -156,7 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#other-types-of-software-testing"><i class="fa fa-check"></i><b>6.3.2</b> Other types of software testing</a></li>
 <li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
 <li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.4</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.5</b> Test driven development</a></li>
+<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.5</b> pytest</a></li>
+<li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -194,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing. These test the different components of “units” of code using tools such as testthat in R.</p>
 <div id="console-tests" class="section level2">
 <h2><span class="header-section-number">6.1</span> Console tests</h2>
-<p>Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.</p>
+<p>Testing code within the R (or Python) console is not recommended as it leaves no trace or records of what has been checked.</p>
 </div>
 <div id="in-script-testing" class="section level2">
 <h2><span class="header-section-number">6.2</span> In-script testing</h2>
@@ -215,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="testing.html#cb1-14"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span>
 <span id="cb1-15"><a href="testing.html#cb1-15"></a><span class="co"># returns error message</span></span>
 <span id="cb1-16"><a href="testing.html#cb1-16"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
+<p>In Python similar approaches can be used. There is also a <a href="https://www.w3schools.com/python/ref_func_print.asp">print function</a> and exceptions provide a way returning an error if a specified condition is met, much like the functionality offered by R’s <code>stop()</code> and <code>stopifnot()</code> functions. <a href="https://www.w3schools.com/python/gloss_python_raise.asp">Here</a> is information about how to raise exceptions and <a href="https://docs.python.org/3/library/exceptions.html">here</a> is more technical, detailed information about the different types of exceptions.</p>
 </div>
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
@@ -294,8 +296,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.3.4</span> Testing Shiny apps</h3>
 <p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
 </div>
+<div id="pytest" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> pytest</h3>
+<p><code>pytest</code> provides similar functionality for Python as testthat does for R. When getting started with <code>pytest</code>, note that <code>pytest</code> implements a test discovery method to find relevant tests. Unless specified otherwise, test files are assumed to be in the current working directory or a sub-folder thereof. It is possible to setup <code>testpaths</code> to specify different file paths for test files if this better fits the project structure. Within these folders, pytest will discover tests in Python files named as <code>test_*.py</code> or <code>*_test.py</code>. The tests themselves then need to be functions named <code>test_*</code> to be detected as tests.</p>
+<p>Whereas <code>testthat</code> has functions to define its expectations, <code>pytest</code> makes use of Pythons <code>assert</code> statement to specify the condition the test expects to be met.</p>
+<p>Python IDEs can come with integration for <code>pytest</code>, making it possible to run tests at the click of the button. If you are using Spyder see <a href="https://www.spyder-ide.org/blog/introducing-unittest-plugin/">here</a> or PyCharm see <a href="https://www.jetbrains.com/help/pycharm/pytest.html">here</a>.</p>
+</div>
 <div id="test-driven-development" class="section level3">
-<h3><span class="header-section-number">6.3.5</span> Test driven development</h3>
+<h3><span class="header-section-number">6.3.6</span> Test driven development</h3>
 <p>“Test driven development” describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in. As with testing, there are plenty of resources on the internet such as <a href="https://www.guru99.com/test-driven-development.html">this one</a>.</p>
 
 </div>
