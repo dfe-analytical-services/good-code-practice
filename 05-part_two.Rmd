@@ -49,6 +49,8 @@ This chapter focuses on unit testing as the other testing aspects cover testing 
 * System testing relates to verification tests on the overall outputs.
 * Acceptance testing relates to the validation pillar of the QA framework.
 
+For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
+
 ### Unit testing
 
 Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.
