@@ -41,16 +41,6 @@ The following types of software testing are commonly used:
 * System testing - tests the overall outputs make sense.
 * Acceptance testing - tests whether or not the work meets its objectives.
 
-Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
-
-This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
-
-* Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.
-* System testing relates to verification tests on the overall outputs.
-* Acceptance testing relates to the validation pillar of the QA framework.
-
-For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
-
 ### Unit testing
 
 Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.
@@ -63,6 +53,18 @@ To implement unit tests, it is generally easiest to use a unit testing framework
 
 * The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)).
 * The `pytest` framework offers a similar resource for Python (more details [here](https://docs.pytest.org/en/latest/))
+
+### Other types of software testing
+
+This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
+
+* Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.
+* System testing relates to verification tests on the overall outputs.
+* Acceptance testing relates to the validation pillar of the QA framework.
+
+Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
+
+For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
 
 ### testthat
 

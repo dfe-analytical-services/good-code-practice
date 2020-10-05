@@ -153,9 +153,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
 <li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.1</b> Unit testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.2</b> testthat</a></li>
-<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.3</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.4</b> Test driven development</a></li>
+<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#other-types-of-software-testing"><i class="fa fa-check"></i><b>6.3.2</b> Other types of software testing</a></li>
+<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
+<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.4</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.5</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -225,14 +226,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>System testing - tests the overall outputs make sense.</li>
 <li>Acceptance testing - tests whether or not the work meets its objectives.</li>
 </ul>
-<p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
-<p>This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
-<ul>
-<li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
-<li>System testing relates to verification tests on the overall outputs.</li>
-<li>Acceptance testing relates to the validation pillar of the QA framework.</li>
-</ul>
-<p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
 <div id="unit-testing" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Unit testing</h3>
 <p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
@@ -244,8 +237,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>pytest</code> framework offers a similar resource for Python (more details <a href="https://docs.pytest.org/en/latest/">here</a>)</li>
 </ul>
 </div>
+<div id="other-types-of-software-testing" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Other types of software testing</h3>
+<p>This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
+<ul>
+<li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
+<li>System testing relates to verification tests on the overall outputs.</li>
+<li>Acceptance testing relates to the validation pillar of the QA framework.</li>
+</ul>
+<p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
+<p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
+</div>
 <div id="testthat" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> testthat</h3>
+<h3><span class="header-section-number">6.3.3</span> testthat</h3>
 <p>The <code>testthat</code> package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
 <p>Firstly we need to have a defined function to test:</p>
@@ -287,11 +291,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.</p>
 </div>
 <div id="testing-shiny-apps" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Testing Shiny apps</h3>
+<h3><span class="header-section-number">6.3.4</span> Testing Shiny apps</h3>
 <p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
 </div>
 <div id="test-driven-development" class="section level3">
-<h3><span class="header-section-number">6.3.4</span> Test driven development</h3>
+<h3><span class="header-section-number">6.3.5</span> Test driven development</h3>
 <p>“Test driven development” describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in. As with testing, there are plenty of resources on the internet such as <a href="https://www.guru99.com/test-driven-development.html">this one</a>.</p>
 
 </div>
