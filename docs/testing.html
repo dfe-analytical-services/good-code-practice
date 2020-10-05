@@ -218,25 +218,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
 <p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.</p>
-<p>There are often four types of software testing covered:</p>
+<p>The following types of software testing are commonly used:</p>
 <ul>
 <li>Unit testing - tests the different components or “units” of code using tools such as <code>testthat</code> in R.</li>
 <li>Integration testing - tests the correct flow of data through the components.</li>
 <li>System testing - tests the overall outputs make sense.</li>
 <li>Acceptance testing - tests whether or not the work meets its objectives.</li>
 </ul>
-<p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out). For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
+<p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
 <p>This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
 <ul>
 <li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
 <li>System testing relates to verification tests on the overall outputs.</li>
 <li>Acceptance testing relates to the validation pillar of the QA framework.</li>
 </ul>
+<p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
 <div id="unit-testing" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Unit testing</h3>
 <p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
 <p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
-<p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and the write tests to ensure the different cases are handled correctly.</p>
+<p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.</p>
 <p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written separate files and then all tests run at once, returning success/failure feedback.</p>
 <ul>
 <li>The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>).</li>
