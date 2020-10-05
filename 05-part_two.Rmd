@@ -57,7 +57,7 @@ As this is a chapter about testing code, we going to focus primarily on unit tes
 
 Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.
 
-One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors:
+One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.
 
 * Testing a function relying on output from previous functions means that, if the test throws an error, it is not immediately clear of the functions (or units) caused the error and therefore it is not a unit test.
 * Testing a function relying on data from a live source (e.g SQL) means it is possible the data could change and cause the test to fail without the function (unit) having any issues so this is also not a unit test.
