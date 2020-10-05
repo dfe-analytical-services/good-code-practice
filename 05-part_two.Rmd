@@ -73,7 +73,7 @@ The `testthat` package, maintained by the RStudio team, is commonly used for uni
 In `testthat`, tests are called **expectations**. These spell out the expected behaviour of the function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory.  Below is an example of testing a simple function.
 
 Firstly we need to have a defined function to test:
-```{r testing_function, eval=TRUE}
+```{r testing_function, eval=TRUE, warning=FALSE}
 # Create a simple function to demonstrate testing approach
 library(tibble)
 

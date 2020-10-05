@@ -254,40 +254,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
 <p>Firstly we need to have a defined function to test:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="testing.html#cb2-1"></a><span class="co"># Create a simple function to demonstrate testing approach</span></span>
-<span id="cb2-2"><a href="testing.html#cb2-2"></a><span class="kw">library</span>(tibble)</span></code></pre></div>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.6.3</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="testing.html#cb4-1"></a><span class="co"># create a data frame of random numbers</span></span>
-<span id="cb4-2"><a href="testing.html#cb4-2"></a>create_random_numbers_dataframe &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb4-3"><a href="testing.html#cb4-3"></a>  <span class="kw">tibble</span>(<span class="dt">some_numbers =</span> <span class="kw">runif</span>(n))</span>
-<span id="cb4-4"><a href="testing.html#cb4-4"></a>}</span></code></pre></div>
+<span id="cb2-2"><a href="testing.html#cb2-2"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb2-3"><a href="testing.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="testing.html#cb2-4"></a><span class="co"># create a data frame of random numbers</span></span>
+<span id="cb2-5"><a href="testing.html#cb2-5"></a>create_random_numbers_dataframe &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb2-6"><a href="testing.html#cb2-6"></a>  <span class="kw">tibble</span>(<span class="dt">some_numbers =</span> <span class="kw">runif</span>(n))</span>
+<span id="cb2-7"><a href="testing.html#cb2-7"></a>}</span></code></pre></div>
 <p>Then we can define some tests for it:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="testing.html#cb5-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
-<span id="cb5-2"><a href="testing.html#cb5-2"></a><span class="co"># Need the testthat package</span></span>
-<span id="cb5-3"><a href="testing.html#cb5-3"></a><span class="kw">library</span>(testthat)</span>
-<span id="cb5-4"><a href="testing.html#cb5-4"></a></span>
-<span id="cb5-5"><a href="testing.html#cb5-5"></a><span class="co"># Need to source our function</span></span>
-<span id="cb5-6"><a href="testing.html#cb5-6"></a><span class="kw">source</span>(<span class="st">&quot;file_where_function_saved.R&quot;</span>)</span>
-<span id="cb5-7"><a href="testing.html#cb5-7"></a></span>
-<span id="cb5-8"><a href="testing.html#cb5-8"></a><span class="co"># Need to run our function to be able to test its impact</span></span>
-<span id="cb5-9"><a href="testing.html#cb5-9"></a><span class="co"># Could also do this within tests if we wanted to test different cases</span></span>
-<span id="cb5-10"><a href="testing.html#cb5-10"></a>mydata &lt;-<span class="st"> </span><span class="kw">create_random_numbers_dataframe</span>(<span class="dv">100</span>)</span>
-<span id="cb5-11"><a href="testing.html#cb5-11"></a></span>
-<span id="cb5-12"><a href="testing.html#cb5-12"></a><span class="co"># The first test checks that the data set</span></span>
-<span id="cb5-13"><a href="testing.html#cb5-13"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
-<span id="cb5-14"><a href="testing.html#cb5-14"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
-<span id="cb5-15"><a href="testing.html#cb5-15"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
-<span id="cb5-16"><a href="testing.html#cb5-16"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
-<span id="cb5-17"><a href="testing.html#cb5-17"></a>})</span>
-<span id="cb5-18"><a href="testing.html#cb5-18"></a></span>
-<span id="cb5-19"><a href="testing.html#cb5-19"></a><span class="co"># The second test checks that the maximum value</span></span>
-<span id="cb5-20"><a href="testing.html#cb5-20"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
-<span id="cb5-21"><a href="testing.html#cb5-21"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
-<span id="cb5-22"><a href="testing.html#cb5-22"></a>  <span class="kw">expect_lte</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
-<span id="cb5-23"><a href="testing.html#cb5-23"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="testing.html#cb3-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
+<span id="cb3-2"><a href="testing.html#cb3-2"></a><span class="co"># Need the testthat package</span></span>
+<span id="cb3-3"><a href="testing.html#cb3-3"></a><span class="kw">library</span>(testthat)</span>
+<span id="cb3-4"><a href="testing.html#cb3-4"></a></span>
+<span id="cb3-5"><a href="testing.html#cb3-5"></a><span class="co"># Need to source our function</span></span>
+<span id="cb3-6"><a href="testing.html#cb3-6"></a><span class="kw">source</span>(<span class="st">&quot;file_where_function_saved.R&quot;</span>)</span>
+<span id="cb3-7"><a href="testing.html#cb3-7"></a></span>
+<span id="cb3-8"><a href="testing.html#cb3-8"></a><span class="co"># Need to run our function to be able to test its impact</span></span>
+<span id="cb3-9"><a href="testing.html#cb3-9"></a><span class="co"># Could also do this within tests if we wanted to test different cases</span></span>
+<span id="cb3-10"><a href="testing.html#cb3-10"></a>mydata &lt;-<span class="st"> </span><span class="kw">create_random_numbers_dataframe</span>(<span class="dv">100</span>)</span>
+<span id="cb3-11"><a href="testing.html#cb3-11"></a></span>
+<span id="cb3-12"><a href="testing.html#cb3-12"></a><span class="co"># The first test checks that the data set</span></span>
+<span id="cb3-13"><a href="testing.html#cb3-13"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
+<span id="cb3-14"><a href="testing.html#cb3-14"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
+<span id="cb3-15"><a href="testing.html#cb3-15"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
+<span id="cb3-16"><a href="testing.html#cb3-16"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
+<span id="cb3-17"><a href="testing.html#cb3-17"></a>})</span>
+<span id="cb3-18"><a href="testing.html#cb3-18"></a></span>
+<span id="cb3-19"><a href="testing.html#cb3-19"></a><span class="co"># The second test checks that the maximum value</span></span>
+<span id="cb3-20"><a href="testing.html#cb3-20"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
+<span id="cb3-21"><a href="testing.html#cb3-21"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
+<span id="cb3-22"><a href="testing.html#cb3-22"></a>  <span class="kw">expect_lte</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
+<span id="cb3-23"><a href="testing.html#cb3-23"></a>})</span></code></pre></div>
 <p>Expectations are tested using the <code>test_dir()</code> function, which takes the path to the testing directory as an argument:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb6-1"><a href="testing.html#cb6-1"></a><span class="co"># test expectations and examine outputs</span></span>
-<span id="cb6-2"><a href="testing.html#cb6-2"></a><span class="co"># In this case, all tests are OK</span></span>
-<span id="cb6-3"><a href="testing.html#cb6-3"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb4-1"><a href="testing.html#cb4-1"></a><span class="co"># test expectations and examine outputs</span></span>
+<span id="cb4-2"><a href="testing.html#cb4-2"></a><span class="co"># In this case, all tests are OK</span></span>
+<span id="cb4-3"><a href="testing.html#cb4-3"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.</p>
 </div>
 <div id="testing-shiny-apps" class="section level3">
