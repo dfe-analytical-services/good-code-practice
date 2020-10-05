@@ -1,6 +1,6 @@
 # Advanced: Testing code{#testing} 
 
-From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:
+From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing.  These test the different components of "units" of code using tools such as testthat in R.
 
 - console tests 
 - in-script testing
