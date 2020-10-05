@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -190,12 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="testing" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Advanced: Testing code</h1>
-<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:</p>
-<ul>
-<li>console tests</li>
-<li>in-script testing</li>
-<li>formalised testing procedures, such as unit testing (tests the different components or “units” of code using tools such as <code>testthat</code> in R)</li>
-</ul>
+<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing. These test the different components of “units” of code using tools such as testthat in R.</p>
 <div id="console-tests" class="section level2">
 <h2><span class="header-section-number">6.1</span> Console tests</h2>
 <p>Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.</p>
@@ -222,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
-<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product so we’ll include some specific comments about these.</p>
+<p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.</p>
 <p>There are often four types of software testing covered:</p>
 <ul>
 <li>Unit testing - tests the different components or “units” of code using tools such as <code>testthat</code> in R.</li>
@@ -231,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Acceptance testing - tests whether or not the work meets its objectives.</li>
 </ul>
 <p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out). For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
-<p>As this is a chapter about testing code, we going to focus primarily on unit testing. The other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
+<p>This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
 <ul>
 <li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
 <li>System testing relates to verification tests on the overall outputs.</li>
@@ -240,11 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="unit-testing" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Unit testing</h3>
 <p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
-<p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors:</p>
-<ul>
-<li>Testing a function relying on output from previous functions means that, if the test throws an error, it is not immediately clear of the functions (or units) caused the error and therefore it is not a unit test.</li>
-<li>Testing a function relying on data from a live source (e.g SQL) means it is possible the data could change and cause the test to fail without the function (unit) having any issues so this is also not a unit test.</li>
-</ul>
+<p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
 <p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and the write tests to ensure the different cases are handled correctly.</p>
 <p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written separate files and then all tests run at once, returning success/failure feedback.</p>
 <ul>
@@ -255,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="testthat" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> testthat</h3>
 <p>The <code>testthat</code> package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
-<p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. It is good practice to save tests relating to the <a href="code-structure.html#code_structure">different code files</a> in different test files, all saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
+<p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
 <p>Firstly we need to have a defined function to test:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="testing.html#cb2-1"></a><span class="co"># Create a simple function to demonstrate testing approach</span></span>
 <span id="cb2-2"><a href="testing.html#cb2-2"></a><span class="kw">library</span>(tibble)</span></code></pre></div>
@@ -296,7 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="testing-shiny-apps" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Testing Shiny apps</h3>
-<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analysis work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
+<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
 </div>
 <div id="test-driven-development" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> Test driven development</h3>

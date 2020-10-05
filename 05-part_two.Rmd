@@ -2,10 +2,6 @@
 
 From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing.  These test the different components of "units" of code using tools such as testthat in R.
 
-- console tests 
-- in-script testing
-- formalised testing procedures, such as unit testing (tests the different components or "units" of code using tools such as `testthat` in R)
-
 ## Console tests
 Testing code within the R console is not recommended as it leaves no trace or records of what has been checked.
 
@@ -58,9 +54,6 @@ This chapter focuses on unit testing as the other testing aspects cover testing 
 Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.
 
 One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.
-
-* Testing a function relying on output from previous functions means that, if the test throws an error, it is not immediately clear of the functions (or units) caused the error and therefore it is not a unit test.
-* Testing a function relying on data from a live source (e.g SQL) means it is possible the data could change and cause the test to fail without the function (unit) having any issues so this is also not a unit test.
 
 To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and the write tests to ensure the different cases are handled correctly.
 
