@@ -1,12 +1,12 @@
 # Advanced: Testing code{#testing} 
 
-From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of model assumptions. Testing is a vast topic and it is beyond the scope of this guide to explore it in depth. Here we concentrate on broad principles corresponding to incrementally thorough testing. These ways of testing include:
+From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing.  These test the different components of "units" of code using tools such as testthat in R or Pytest in Python.
 
-- console tests 
-- in-script testing
-- unit testing (using tools such as `testthat` in R)
+## Console tests
+Testing code within the console is not recommended as it leaves no trace or records of what has been checked.
 
-Testing code within the R console is not recommended as it leaves no trace or records of what has been checked. In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perfom in-script checks, from `print()` statements, to `base` functions `stop()` and `stopfinot()`, to functions from dedicated packages such as `assertthat` or `testit`. Examples are shown below. 
+## In-script testing
+In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from `print()` statements, to `base` functions `stop()` and `stopfinot()`, to functions from dedicated packages such as `assertthat` or `testit`. Examples are shown below. 
 
 ```{r stopifnot, eval = FALSE, class.source = "badCode"}
 
@@ -30,15 +30,72 @@ get_max(c("a", "b", "c"))
 
 ```
 
-Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it, this is commonly referred to as 'unit testing'. These require both writing tests in separate files and using specialised packages that run all tests at once and return success/failure feedback. The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)). Although most of its documentation and functionalities focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
+In Python similar approaches can be used. There is also a [print function](https://www.w3schools.com/python/ref_func_print.asp) and exceptions provide a way of returning an error if a specified condition is met, much like the functionality offered by R's `stop()` and `stopifnot()` functions. There is information about how to raise exceptions [here](https://www.w3schools.com/python/gloss_python_raise.asp) or you can find more technical, detailed information about the different types of exceptions [here](https://docs.python.org/3/library/exceptions.html).
 
-In `testthat`, tests are called **expectations**. These spell out the expected behaviour of a specific piece of code - typically a function. `testthat` provides many functionalities to define expectactions - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing **context** are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of a file containing tests checking data integrity. 
+## Formalised testing
+Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.
 
-```{r testthat, eval = FALSE}
+The following types of software testing are commonly used:
+
+* Unit testing - tests the different components or "units" of code using tools such as `testthat` in R.
+* Integration testing - tests the correct flow of data through the components.
+* System testing - tests the overall outputs make sense.
+* Acceptance testing - tests whether or not the work meets its objectives.
+
+### Software testing
+
+Before we focus on unit testing, it is important to note that the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:
+
+* Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.
+* System testing relates to verification tests on the overall outputs.
+* Acceptance testing relates to the validation pillar of the QA framework.
+
+Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).
+
+For more information, see [here](https://www.guru99.com/levels-of-testing.html) or explore further with help from a search engine.
+
+### Unit testing
+
+Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.
+
+One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.
+
+To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.
+
+To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.
+
+* The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)).
+* The `pytest` framework offers a similar resource for Python (more details [here](https://docs.pytest.org/en/latest/))
+
+### testthat
+
+The `testthat` package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, `testthat` can also be used with regular R projects.  There's a brief overview of unit testing below, but for a more detailed introduction see [here](https://katherinemwood.github.io/post/testthat/) or [here](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/) for a more in-depth overview of automated testing, including test driven development. 
+
+In `testthat`, tests are called **expectations**. These spell out the expected behaviour of the function or unit of code. `testthat` provides many functions to define expectations - see details [here](http://r-pkgs.had.co.nz/tests.html). Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory.  Below is an example of testing a simple function.
+
+Firstly we need to have a defined function to test:
+```{r testing_function, eval=TRUE, warning=FALSE}
+# Create a simple function to demonstrate testing approach
+library(tibble)
+
+# create a data frame of random numbers
+create_random_numbers_dataframe <- function(n){
+  tibble(some_numbers = runif(n))
+}
+```
+
+Then we can define some tests for it:
+```{r testthat, eval = FALSE, warning=FALSE}
 # This file is stored in a directory called "testing_directory" 
+# Need the testthat package
+library(testthat)
 
-# Define context
-context("checking data integrity")
+# Need to source our function
+source("file_where_function_saved.R")
+
+# Need to run our function to be able to test its impact
+# Could also do this within tests if we wanted to test different cases
+mydata <- create_random_numbers_dataframe(100)
 
 # The first test checks that the data set
 # "mydata" has a a single column and 100 rows
@@ -50,23 +107,32 @@ test_that('data dimensions correct', {
 # The second test checks that the maximum value
 # of the variable "some_numbers" does not exceed 1
 test_that('no value greater than 1', {
-  expect_lt(max(mydata$some_numbers), 1)
+  expect_lte(max(mydata$some_numbers), 1)
 })
 
 ```
 
-Expectations are tested using the `test_dir()` function, which takes the path to the testing directory as an argument. 
+Expectations are tested using the `test_dir()` function, which takes the path to the testing directory as an argument:
 ```{r testing, message = FALSE, eval = FALSE, class.source = "badCode"}
-library(testthat)
-library(tidyverse)
-
-# create a data frame
-mydata <- tibble(some_numbers = runif(100))
-
 # test expectations and examine outputs
 # In this case, all tests are OK
 test_dir("testing_directory")
 ```
 
-`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occured.  
+`test_dir()` provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.
 
+### pytest
+
+`pytest` provides similar functionality for Python as testthat does for R. When getting started with `pytest`, note that `pytest` implements a test discovery method to find relevant tests. Unless specified otherwise, test files are assumed to be in the current working directory or a sub-folder thereof. It is possible to setup `testpaths` to specify different file paths for test files if this better fits the project structure. Within these folders, pytest will discover tests in Python files named as `test_*.py` or `*_test.py`. The tests themselves then need to be functions named `test_*` to be detected as tests.
+
+Whereas `testthat` has functions to define its expectations, `pytest` makes use of Pythons `assert` statement to specify the condition the test expects to be met.
+
+Python IDEs can come with integration for `pytest`, making it possible to run tests at the click of the button. If you are using Spyder see [here](https://www.spyder-ide.org/blog/introducing-unittest-plugin/) or PyCharm see [here](https://www.jetbrains.com/help/pycharm/pytest.html).
+
+### Testing Shiny apps
+
+R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found [here](https://shiny.rstudio.com/articles/integration-testing.html).
+
+### Test driven development
+
+"Test driven development" describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in. As with testing, there are plenty of resources on the internet such as [this one](https://www.guru99.com/test-driven-development.html).
