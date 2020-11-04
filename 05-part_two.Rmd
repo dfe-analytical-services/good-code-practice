@@ -64,7 +64,7 @@ To write a good set of unit tests, think about the different types of input (e.g
 
 To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.
 
-* The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat)).
+* The `testthat` package is a popular tool to write and run tests in R (more details [here](https://github.com/r-lib/testthat))
 * The `pytest` framework offers a similar resource for Python (more details [here](https://docs.pytest.org/en/latest/))
 
 ### testthat

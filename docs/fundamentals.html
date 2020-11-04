@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-07-31" />
+<meta name="date" content="2020-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,7 +148,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="good.html"><a href="good.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
-<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a></li>
+<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a><ul>
+<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
+<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
+<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
+<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
+<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.4</b> pytest</a></li>
+<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.5</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
 <li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
 <li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
@@ -185,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Use comments judiciously throughout your code</strong><br />
 They can and should be used to frame distinct sections within your work, to signpost the flow of the work, to clarify choices (e.g. of methodology), and to explain <em>why</em> you have done what you have done (the “what” is usually pretty obvious from the coding itself). For example, you may be excluding all teachers under the age of 25: this will be obvious in the code itself but your comments should explain <em>why</em> this group of teachers is not of interest (e.g. they are likely to lack experience). There’s no good excuse for not commenting your code, and both you and others will reap the benefits when you do. A simple header is a useful way of capturing essential contextual information about the purpose of the code. Without, it may be difficult (or impossible) to identify the purpose of the code and why it was written. Commenting your code is a key component within the <strong>documentation</strong> pillar of the QA framework and is covered in more detail in the <a href="documentation.html#documentation">documentation</a> section.</p>
 <p><strong>Give your variables descriptive names</strong><br />
-There is very little to be gained by using obscure variable names (e.g. x1, a). Choose variable names that reflect the role of the variable in your work (and the same for functions and subqueries). Most coding languages support numerous naming conventions (some of them are discussed in [section <a href="good.html#good">chapter 4</a>) and none is inherently better than any other. Choose one you are comfortable with – and use it <em>consistently</em>. This will go a long way to making your code easier to read and assure.</p>
+There is very little to be gained by using obscure variable names (e.g. x1, a). Choose variable names that reflect the role of the variable in your work (and the same for functions and subqueries). Most coding languages support numerous naming conventions (some of them are discussed in <a href="good.html#good">chapter 4</a>) and none is inherently better than any other. Choose one you are comfortable with – and use it <em>consistently</em>. This will go a long way to making your code easier to read and assure.</p>
 <p><strong>Avoid embedding constants and literals (“hard-coded” values) within the body of your code</strong><br />
 This is most relevant when building models with parameters that could potentially be changed on subsequent runs. Ideally there should be a dedicated section at the top of the code which declares variables (data-typing where necessary) and initialises them – this allows others to see at glance the numerical assumptions and definitions your code employs.</p>
 <p><strong>Shorter is not necessarily better</strong><br />

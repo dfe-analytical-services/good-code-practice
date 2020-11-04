@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Advanced: Testing code | DfE Good code practice</title>
   <meta name="description" content="DfE Good Code Practide guide." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Advanced: Testing code | DfE Good code practice" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-10-05" />
+<meta name="date" content="2020-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,11 +152,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
 <li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
 <li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.1</b> Unit testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#other-types-of-software-testing"><i class="fa fa-check"></i><b>6.3.2</b> Other types of software testing</a></li>
+<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
 <li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
-<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.4</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.5</b> pytest</a></li>
+<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.4</b> pytest</a></li>
+<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.5</b> Testing Shiny apps</a></li>
 <li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
@@ -192,31 +192,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="testing" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Advanced: Testing code</h1>
-<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing. These test the different components of “units” of code using tools such as testthat in R.</p>
+<p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing. These test the different components of “units” of code using tools such as testthat in R or Pytest in Python.</p>
 <div id="console-tests" class="section level2">
 <h2><span class="header-section-number">6.1</span> Console tests</h2>
-<p>Testing code within the R (or Python) console is not recommended as it leaves no trace or records of what has been checked.</p>
+<p>Testing code within the console is not recommended as it leaves no trace or records of what has been checked.</p>
 </div>
 <div id="in-script-testing" class="section level2">
 <h2><span class="header-section-number">6.2</span> In-script testing</h2>
 <p>In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from <code>print()</code> statements, to <code>base</code> functions <code>stop()</code> and <code>stopfinot()</code>, to functions from dedicated packages such as <code>assertthat</code> or <code>testit</code>. Examples are shown below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb1-1"><a href="testing.html#cb1-1"></a><span class="co"># This code snippet creates a function that</span></span>
-<span id="cb1-2"><a href="testing.html#cb1-2"></a><span class="co"># returns the maximum value of a vector</span></span>
-<span id="cb1-3"><a href="testing.html#cb1-3"></a><span class="co"># of numbers. The function contains </span></span>
-<span id="cb1-4"><a href="testing.html#cb1-4"></a><span class="co"># an in-script test checking that</span></span>
-<span id="cb1-5"><a href="testing.html#cb1-5"></a><span class="co"># its input is numerical. If the condition</span></span>
-<span id="cb1-6"><a href="testing.html#cb1-6"></a><span class="co"># is not met, execution is halted</span></span>
-<span id="cb1-7"><a href="testing.html#cb1-7"></a>get_max &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb1-8"><a href="testing.html#cb1-8"></a>  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x))</span>
-<span id="cb1-9"><a href="testing.html#cb1-9"></a>  <span class="kw">max</span>(x)</span>
-<span id="cb1-10"><a href="testing.html#cb1-10"></a>}</span>
-<span id="cb1-11"><a href="testing.html#cb1-11"></a></span>
-<span id="cb1-12"><a href="testing.html#cb1-12"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</span>
-<span id="cb1-13"><a href="testing.html#cb1-13"></a><span class="co"># returns 10</span></span>
-<span id="cb1-14"><a href="testing.html#cb1-14"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span>
-<span id="cb1-15"><a href="testing.html#cb1-15"></a><span class="co"># returns error message</span></span>
-<span id="cb1-16"><a href="testing.html#cb1-16"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
-<p>In Python similar approaches can be used. There is also a <a href="https://www.w3schools.com/python/ref_func_print.asp">print function</a> and exceptions provide a way returning an error if a specified condition is met, much like the functionality offered by R’s <code>stop()</code> and <code>stopifnot()</code> functions. <a href="https://www.w3schools.com/python/gloss_python_raise.asp">Here</a> is information about how to raise exceptions and <a href="https://docs.python.org/3/library/exceptions.html">here</a> is more technical, detailed information about the different types of exceptions.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb9-1"><a href="testing.html#cb9-1"></a><span class="co"># This code snippet creates a function that</span></span>
+<span id="cb9-2"><a href="testing.html#cb9-2"></a><span class="co"># returns the maximum value of a vector</span></span>
+<span id="cb9-3"><a href="testing.html#cb9-3"></a><span class="co"># of numbers. The function contains </span></span>
+<span id="cb9-4"><a href="testing.html#cb9-4"></a><span class="co"># an in-script test checking that</span></span>
+<span id="cb9-5"><a href="testing.html#cb9-5"></a><span class="co"># its input is numerical. If the condition</span></span>
+<span id="cb9-6"><a href="testing.html#cb9-6"></a><span class="co"># is not met, execution is halted</span></span>
+<span id="cb9-7"><a href="testing.html#cb9-7"></a>get_max &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb9-8"><a href="testing.html#cb9-8"></a>  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(x))</span>
+<span id="cb9-9"><a href="testing.html#cb9-9"></a>  <span class="kw">max</span>(x)</span>
+<span id="cb9-10"><a href="testing.html#cb9-10"></a>}</span>
+<span id="cb9-11"><a href="testing.html#cb9-11"></a></span>
+<span id="cb9-12"><a href="testing.html#cb9-12"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</span>
+<span id="cb9-13"><a href="testing.html#cb9-13"></a><span class="co"># returns 10</span></span>
+<span id="cb9-14"><a href="testing.html#cb9-14"></a><span class="kw">get_max</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span>
+<span id="cb9-15"><a href="testing.html#cb9-15"></a><span class="co"># returns error message</span></span>
+<span id="cb9-16"><a href="testing.html#cb9-16"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
+<p>In Python similar approaches can be used. There is also a <a href="https://www.w3schools.com/python/ref_func_print.asp">print function</a> and exceptions provide a way of returning an error if a specified condition is met, much like the functionality offered by R’s <code>stop()</code> and <code>stopifnot()</code> functions. There is information about how to raise exceptions <a href="https://www.w3schools.com/python/gloss_python_raise.asp">here</a> or you can find more technical, detailed information about the different types of exceptions <a href="https://docs.python.org/3/library/exceptions.html">here</a>.</p>
 </div>
 <div id="formalised-testing" class="section level2">
 <h2><span class="header-section-number">6.3</span> Formalised testing</h2>
@@ -228,20 +228,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>System testing - tests the overall outputs make sense.</li>
 <li>Acceptance testing - tests whether or not the work meets its objectives.</li>
 </ul>
-<div id="unit-testing" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Unit testing</h3>
-<p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
-<p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
-<p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.</p>
-<p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.</p>
-<ul>
-<li>The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>).</li>
-<li>The <code>pytest</code> framework offers a similar resource for Python (more details <a href="https://docs.pytest.org/en/latest/">here</a>)</li>
-</ul>
-</div>
-<div id="other-types-of-software-testing" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Other types of software testing</h3>
-<p>This chapter focuses on unit testing as the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
+<div id="software-testing" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Software testing</h3>
+<p>Before we focus on unit testing, it is important to note that the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
 <ul>
 <li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
 <li>System testing relates to verification tests on the overall outputs.</li>
@@ -250,57 +239,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
 <p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
 </div>
+<div id="unit-testing" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Unit testing</h3>
+<p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
+<p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
+<p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.</p>
+<p>To implement unit tests, it is generally easiest to use a unit testing framework. These generally allow tests to be written in separate files and then all tests run at once, returning success/failure feedback.</p>
+<ul>
+<li>The <code>testthat</code> package is a popular tool to write and run tests in R (more details <a href="https://github.com/r-lib/testthat">here</a>)</li>
+<li>The <code>pytest</code> framework offers a similar resource for Python (more details <a href="https://docs.pytest.org/en/latest/">here</a>)</li>
+</ul>
+</div>
 <div id="testthat" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> testthat</h3>
 <p>The <code>testthat</code> package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
 <p>Firstly we need to have a defined function to test:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="testing.html#cb2-1"></a><span class="co"># Create a simple function to demonstrate testing approach</span></span>
-<span id="cb2-2"><a href="testing.html#cb2-2"></a><span class="kw">library</span>(tibble)</span>
-<span id="cb2-3"><a href="testing.html#cb2-3"></a></span>
-<span id="cb2-4"><a href="testing.html#cb2-4"></a><span class="co"># create a data frame of random numbers</span></span>
-<span id="cb2-5"><a href="testing.html#cb2-5"></a>create_random_numbers_dataframe &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb2-6"><a href="testing.html#cb2-6"></a>  <span class="kw">tibble</span>(<span class="dt">some_numbers =</span> <span class="kw">runif</span>(n))</span>
-<span id="cb2-7"><a href="testing.html#cb2-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="testing.html#cb10-1"></a><span class="co"># Create a simple function to demonstrate testing approach</span></span>
+<span id="cb10-2"><a href="testing.html#cb10-2"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb10-3"><a href="testing.html#cb10-3"></a></span>
+<span id="cb10-4"><a href="testing.html#cb10-4"></a><span class="co"># create a data frame of random numbers</span></span>
+<span id="cb10-5"><a href="testing.html#cb10-5"></a>create_random_numbers_dataframe &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb10-6"><a href="testing.html#cb10-6"></a>  <span class="kw">tibble</span>(<span class="dt">some_numbers =</span> <span class="kw">runif</span>(n))</span>
+<span id="cb10-7"><a href="testing.html#cb10-7"></a>}</span></code></pre></div>
 <p>Then we can define some tests for it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="testing.html#cb3-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
-<span id="cb3-2"><a href="testing.html#cb3-2"></a><span class="co"># Need the testthat package</span></span>
-<span id="cb3-3"><a href="testing.html#cb3-3"></a><span class="kw">library</span>(testthat)</span>
-<span id="cb3-4"><a href="testing.html#cb3-4"></a></span>
-<span id="cb3-5"><a href="testing.html#cb3-5"></a><span class="co"># Need to source our function</span></span>
-<span id="cb3-6"><a href="testing.html#cb3-6"></a><span class="kw">source</span>(<span class="st">&quot;file_where_function_saved.R&quot;</span>)</span>
-<span id="cb3-7"><a href="testing.html#cb3-7"></a></span>
-<span id="cb3-8"><a href="testing.html#cb3-8"></a><span class="co"># Need to run our function to be able to test its impact</span></span>
-<span id="cb3-9"><a href="testing.html#cb3-9"></a><span class="co"># Could also do this within tests if we wanted to test different cases</span></span>
-<span id="cb3-10"><a href="testing.html#cb3-10"></a>mydata &lt;-<span class="st"> </span><span class="kw">create_random_numbers_dataframe</span>(<span class="dv">100</span>)</span>
-<span id="cb3-11"><a href="testing.html#cb3-11"></a></span>
-<span id="cb3-12"><a href="testing.html#cb3-12"></a><span class="co"># The first test checks that the data set</span></span>
-<span id="cb3-13"><a href="testing.html#cb3-13"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
-<span id="cb3-14"><a href="testing.html#cb3-14"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
-<span id="cb3-15"><a href="testing.html#cb3-15"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
-<span id="cb3-16"><a href="testing.html#cb3-16"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
-<span id="cb3-17"><a href="testing.html#cb3-17"></a>})</span>
-<span id="cb3-18"><a href="testing.html#cb3-18"></a></span>
-<span id="cb3-19"><a href="testing.html#cb3-19"></a><span class="co"># The second test checks that the maximum value</span></span>
-<span id="cb3-20"><a href="testing.html#cb3-20"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
-<span id="cb3-21"><a href="testing.html#cb3-21"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
-<span id="cb3-22"><a href="testing.html#cb3-22"></a>  <span class="kw">expect_lte</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
-<span id="cb3-23"><a href="testing.html#cb3-23"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="testing.html#cb11-1"></a><span class="co"># This file is stored in a directory called &quot;testing_directory&quot; </span></span>
+<span id="cb11-2"><a href="testing.html#cb11-2"></a><span class="co"># Need the testthat package</span></span>
+<span id="cb11-3"><a href="testing.html#cb11-3"></a><span class="kw">library</span>(testthat)</span>
+<span id="cb11-4"><a href="testing.html#cb11-4"></a></span>
+<span id="cb11-5"><a href="testing.html#cb11-5"></a><span class="co"># Need to source our function</span></span>
+<span id="cb11-6"><a href="testing.html#cb11-6"></a><span class="kw">source</span>(<span class="st">&quot;file_where_function_saved.R&quot;</span>)</span>
+<span id="cb11-7"><a href="testing.html#cb11-7"></a></span>
+<span id="cb11-8"><a href="testing.html#cb11-8"></a><span class="co"># Need to run our function to be able to test its impact</span></span>
+<span id="cb11-9"><a href="testing.html#cb11-9"></a><span class="co"># Could also do this within tests if we wanted to test different cases</span></span>
+<span id="cb11-10"><a href="testing.html#cb11-10"></a>mydata &lt;-<span class="st"> </span><span class="kw">create_random_numbers_dataframe</span>(<span class="dv">100</span>)</span>
+<span id="cb11-11"><a href="testing.html#cb11-11"></a></span>
+<span id="cb11-12"><a href="testing.html#cb11-12"></a><span class="co"># The first test checks that the data set</span></span>
+<span id="cb11-13"><a href="testing.html#cb11-13"></a><span class="co"># &quot;mydata&quot; has a a single column and 100 rows</span></span>
+<span id="cb11-14"><a href="testing.html#cb11-14"></a><span class="kw">test_that</span>(<span class="st">&#39;data dimensions correct&#39;</span>, {</span>
+<span id="cb11-15"><a href="testing.html#cb11-15"></a>  <span class="kw">expect_equal</span>(<span class="kw">ncol</span>(mydata), <span class="dv">1</span>)</span>
+<span id="cb11-16"><a href="testing.html#cb11-16"></a>  <span class="kw">expect_equal</span>(<span class="kw">nrow</span>(mydata), <span class="dv">100</span>)</span>
+<span id="cb11-17"><a href="testing.html#cb11-17"></a>})</span>
+<span id="cb11-18"><a href="testing.html#cb11-18"></a></span>
+<span id="cb11-19"><a href="testing.html#cb11-19"></a><span class="co"># The second test checks that the maximum value</span></span>
+<span id="cb11-20"><a href="testing.html#cb11-20"></a><span class="co"># of the variable &quot;some_numbers&quot; does not exceed 1</span></span>
+<span id="cb11-21"><a href="testing.html#cb11-21"></a><span class="kw">test_that</span>(<span class="st">&#39;no value greater than 1&#39;</span>, {</span>
+<span id="cb11-22"><a href="testing.html#cb11-22"></a>  <span class="kw">expect_lte</span>(<span class="kw">max</span>(mydata<span class="op">$</span>some_numbers), <span class="dv">1</span>)</span>
+<span id="cb11-23"><a href="testing.html#cb11-23"></a>})</span></code></pre></div>
 <p>Expectations are tested using the <code>test_dir()</code> function, which takes the path to the testing directory as an argument:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb4-1"><a href="testing.html#cb4-1"></a><span class="co"># test expectations and examine outputs</span></span>
-<span id="cb4-2"><a href="testing.html#cb4-2"></a><span class="co"># In this case, all tests are OK</span></span>
-<span id="cb4-3"><a href="testing.html#cb4-3"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb12-1"><a href="testing.html#cb12-1"></a><span class="co"># test expectations and examine outputs</span></span>
+<span id="cb12-2"><a href="testing.html#cb12-2"></a><span class="co"># In this case, all tests are OK</span></span>
+<span id="cb12-3"><a href="testing.html#cb12-3"></a><span class="kw">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.</p>
 </div>
-<div id="testing-shiny-apps" class="section level3">
-<h3><span class="header-section-number">6.3.4</span> Testing Shiny apps</h3>
-<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
-</div>
 <div id="pytest" class="section level3">
-<h3><span class="header-section-number">6.3.5</span> pytest</h3>
+<h3><span class="header-section-number">6.3.4</span> pytest</h3>
 <p><code>pytest</code> provides similar functionality for Python as testthat does for R. When getting started with <code>pytest</code>, note that <code>pytest</code> implements a test discovery method to find relevant tests. Unless specified otherwise, test files are assumed to be in the current working directory or a sub-folder thereof. It is possible to setup <code>testpaths</code> to specify different file paths for test files if this better fits the project structure. Within these folders, pytest will discover tests in Python files named as <code>test_*.py</code> or <code>*_test.py</code>. The tests themselves then need to be functions named <code>test_*</code> to be detected as tests.</p>
 <p>Whereas <code>testthat</code> has functions to define its expectations, <code>pytest</code> makes use of Pythons <code>assert</code> statement to specify the condition the test expects to be met.</p>
 <p>Python IDEs can come with integration for <code>pytest</code>, making it possible to run tests at the click of the button. If you are using Spyder see <a href="https://www.spyder-ide.org/blog/introducing-unittest-plugin/">here</a> or PyCharm see <a href="https://www.jetbrains.com/help/pycharm/pytest.html">here</a>.</p>
+</div>
+<div id="testing-shiny-apps" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Testing Shiny apps</h3>
+<p>R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found <a href="https://shiny.rstudio.com/articles/integration-testing.html">here</a>.</p>
 </div>
 <div id="test-driven-development" class="section level3">
 <h3><span class="header-section-number">6.3.6</span> Test driven development</h3>
