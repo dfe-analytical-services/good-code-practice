@@ -131,7 +131,70 @@ Python IDEs can come with integration for `pytest`, making it possible to run te
 
 ### Testing Shiny apps
 
-R Shiny apps may benefit from a further extended testing approach. They encompass not just some analysis, but also a User Interface and a Server to enable them to run. This makes them closer to a software development project than the average piece of analytical work. Additional functionality is available within R to support testing of Shiny apps. Further details about this can be found [here](https://shiny.rstudio.com/articles/integration-testing.html).
+R Shiny apps include not only analysis, but also a user interface and server logic. This makes them closer to a software development project than the average piece of analytical work and additional functionality is available within R to support testing of Shiny apps. Useful demonstrations of some methods can be found [here](https://shiny.rstudio.com/articles/testing-overview.html) and [here](https://mastering-shiny.org/scaling-testing.html).
+
+Unit, integration and systems testing can all be automated with a little extra consideration given to the structure of your shiny code. 
+
+Pulling functions out of reactive objects allows unit testing to be implemented for those functions. Take the following simple reactive object that doubles the value of the input labelled `x`:
+
+```{r app_code, eval = FALSE}
+reactive({
+  input$x * 2
+})
+```
+
+The function can be pulled out of the reactive environment.
+
+```{r app_function, eval = FALSE}
+doubler <- function(x) x * 2
+```
+
+This function can be tested in the usual way. The reactive object in the server code is then just a call to the function.
+
+```{r app_server, eval = FALSE}
+reactive({
+  doubler(input$x)
+})
+```
+
+The structure of a shiny app used to make integration testing more difficult as the flow of data occurs only when the app is running. However, `shiny` version 1.5.0 includes a couple of functions that allow easy access to these environments for testing. The functions `testServer` and `testModule` allow manipulation and inspection of the server parameters (e.g `input`, `output` and `session`) as well as allowing objects created in the session to be inspected.
+
+For example, let's place an example function within some server code, where a number is supplied by the user (labelled `x`) and the doubled amount is output as text.
+
+```{r test_server, eval = FALSE}
+server <- function(input, output, session){
+  
+  output$value <- renderText({
+    paste("Doubled:", doubler(input$x))
+  })
+  
+}
+```
+
+The integration of the doubler function with the input and output can be tested by amending inputs and setting expectations as in the following example:
+
+```{r test_server_tests, eval = FALSE}
+testServer(
+  expr = {
+    session$setInputs(x = 2) # set input$x to 2
+    testthat::expect_equal(output$value, "Doubled: 4")
+    }
+  )
+```
+
+Checking the connections between the server and the user interface are implemented correctly can be automated using the `shinytest` package. This runs the app, records user interactions, and takes snapshots of the application state. In future runs, the saved user interactions are simulated and the resulting state compared to the appropriate snapshot. 
+
+Snapshot tests are recorded using `shinytest::recordTest(".")`. In the below image of the test recording app that is launched, the numeric input value has been changed, the output has updated and the application is saved in the resulting state.   When the app is exited, using the *Save script and exit test recorder* button, a test will be generated and saved in the `tests/shinytest` subfolder. When the tests are run with `shinytest::testApp(".")`, the app will run invisibly, test scripts run, and snapshots compared. Further details can be found [here](https://rstudio.github.io/shinytest/articles/shinytest.html).
+
+![Recording a test and snapshot using `shinytest::recordTest(".")](screenshot.PNG)
+
+To create and test snapshots `shinytest` runs the app in a headless browser. To avoid proxy issues when running these tests, remove http proxy settings for the session using the following command.
+
+```{r remove_proxy, eval = FALSE}
+Sys.unsetenv("http_proxy")
+```
+
+It is important not to overlook usability testing (also known as UX testing or user experience testing) when creating an app. While this cannot be automated, there is immense value in watching a third party use an app. It does not matter how immaculate the code is if the end-user finds the app hard to use or difficult to parse. As such, usability testing should form part of any QA process involving shiny apps.
 
 ### Test driven development
 
