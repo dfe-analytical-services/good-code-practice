@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Fundamentals: What good code looks like | DfE Good code practice</title>
+  <title>Chapter 4 Fundamentals: What good code looks like | DfE Good Code Practice</title>
   <meta name="description" content="DfE Good Code Practide guide." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good code practice" />
+  <meta property="og:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good Code Practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good code practice" />
+  <meta name="twitter:title" content="Chapter 4 Fundamentals: What good code looks like | DfE Good Code Practice" />
   
   <meta name="twitter:description" content="DfE Good Code Practide guide." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-11-04" />
+<meta name="date" content="2021-08-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="fundamentals.html"/>
 <link rel="next" href="code-structure.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,21 +51,23 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -129,16 +133,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.3</b> Our approach to writing and updating this guidance</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a><ul>
+<li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html#why-writing-good-code-is-so-important"><i class="fa fa-check"></i><b>2.1</b> Why writing good code is so important</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
-<li class="chapter" data-level="4" data-path="good.html"><a href="good.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
+<li class="chapter" data-level="4" data-path="good.html"><a href="good.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="good.html"><a href="good.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
 <li class="chapter" data-level="4.2" data-path="good.html"><a href="good.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
 <li class="chapter" data-level="4.3" data-path="good.html"><a href="good.html#descriptive-use-of-variable-names"><i class="fa fa-check"></i><b>4.3</b> Descriptive use of variable names</a></li>
@@ -148,10 +155,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="good.html"><a href="good.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
-<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a><ul>
+<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
 <li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
-<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
+<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
 <li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
 <li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
@@ -161,13 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
-<li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
+<li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
 <li class="chapter" data-level="8.2" data-path="documentation.html"><a href="documentation.html#rmarkdown-file"><i class="fa fa-check"></i><b>8.2</b> Rmarkdown file</a></li>
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
+<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-and-other-government-department-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE and Other Government Department resources</a></li>
 <li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
 <li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
@@ -182,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good code practice</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good Code Practice</a>
           </h1>
         </div>
 
@@ -190,10 +201,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="good" class="section level1">
+<div id="good" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Fundamentals: What good code looks like</h1>
 <p>There is no definitive style that determines if code is well written or not. There’s an excellent resource for styling R code <a href="https://style.tidyverse.org/index.html">here</a> and it’s worth noting that Rstudio comes with numerous functionalities designed to help with good code structure (see drop down menu in <code>Code</code>). But, there are several features that are consistently found in code, regardless of language, that follow the principles of good practice. Some of these are outlined in the examples below.</p>
-<div id="a-clear-and-informative-header" class="section level2">
+<div id="a-clear-and-informative-header" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> A clear and informative Header</h2>
 <p>A header should contain, at a minimum, enough information about the code to give the reader an understanding of the task the code is attempting to carry out. It should contain the details of the original author, as well as any subsequent authors, and the dates of any key events – such as the creation date, or the date of a major modification. Headers can also contain information about data sources, libraries or packages (including version) used, or notes on any assumptions that are made in the analysis. If you’re using <a href="VC.html#VC">Version Control</a> software, some of this information may be captured automatically though.</p>
 <pre><code>  # VIRTUAL COHORT Propensity Score Matching ANALYSIS – 2014 KS2    
@@ -218,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   /////----------------------------------------------------------------\\\\\
   \\\\\----------------------------------------------------------------/////</code></pre>
 </div>
-<div id="consistent-use-of-indentation" class="section level2">
+<div id="consistent-use-of-indentation" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Consistent use of indentation</h2>
 <p>Indentation is an important mechanism that adds <em>structure and readability</em> to code. Just like you would use grammar – sentences and paragraphs – to improve the readability of your written communication, you can use indentation to improve your code. A large block of code with no structure is as unreadable as a large block of prose in a novel. (Note that in some languages [e.g. Python] indentation also has a functional purpose – your code will not run correctly if you do not get it right.)</p>
 <p>Indentation allows the programmer to delineate which part of code a statement belongs to – for example, any code that is encapsulated by an If statement can be clearly marked by indenting the code:</p>
@@ -233,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 END IF
 </code></pre>
 </div>
-<div id="descriptive-use-of-variable-names" class="section level2">
+<div id="descriptive-use-of-variable-names" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Descriptive use of variable names</h2>
 <p>Variable names should be short but descriptive. E.g. <em>x1</em> is not really helpful in interpreting the role of the variable, but <em>AverageAgeMale</em> is much more helpful if the task is about looking at population dynamics. Use names that link with the subject matter of the task.</p>
 <p>Generally, variable names should be nouns and functions names should be verbs. This isn’t always an easy thing to do!</p>
@@ -250,7 +261,7 @@ But, it’s important to note that spaces can lead to issues in some instances s
 </ul>
 <p>No one is better than any other – the point is to choose one and use it <em>consistently</em> in your code. If you are modifying someone else’s code that has already established a convention, <em>stick to that convention</em>, even if it isn’t the one you’d usually choose.</p>
 </div>
-<div id="descriptive-and-informative-comments" class="section level2">
+<div id="descriptive-and-informative-comments" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Descriptive and informative comments</h2>
 <p>Use comments to explain the “why”. The “what” and “how” are usually implied by the code itself. An example of well commented code is given below, the comments explain the reasoning behind each operation and allow the reader to understand the context and purpose of the code.</p>
 <pre><code># We need to identify which pupils are eligible for free school meals
@@ -271,7 +282,7 @@ filtered_pupils &lt;- mutate(total_pupils,
 #  some nice outputs
                     pupils_wide &lt;- spread(filtered_pupils, academic_year, benefit)</code></pre>
 </div>
-<div id="a-clear-flow-and-structure" class="section level2">
+<div id="a-clear-flow-and-structure" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> A clear flow and structure</h2>
 <p>Structure code in a logical order – if you can, break your code into chunks. This can make it much easier to follow. Try not to jump around when manipulating different variables/tables – do your data manipulation on one object and then move onto the next; merge and combine objects at a sensible time.</p>
 <p>Strive to limit your code to a reasonable number of characters per line. Doing this means your code is easily readable on one page (remember that others may be working with a smaller view window than you), without the need for scrolling, and it can help to identify different input variables within nested functions.</p>
@@ -300,7 +311,7 @@ folder &lt;- “2019-08-12”
 # Bind regional codes to rates
     regional_rates &lt;- merge(rates, regions)</code></pre>
 </div>
-<div id="consistent-spacing" class="section level2">
+<div id="consistent-spacing" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Consistent spacing</h2>
 <p>Use white space around code lines and operators. White space around code lines helps to break up the code into readable chunks (see previous section on flow and structure).</p>
 <p>Most operators (==, +, -, &lt;-, etc.) should always be surrounded by spaces.</p>
@@ -314,7 +325,7 @@ if (fruit == “Orange”) {
     oranges &lt;- crates * crate_stock - wastage
     }</code></pre>
 </div>
-<div id="if-required-the-use-of-functions-or-subroutines" class="section level2">
+<div id="if-required-the-use-of-functions-or-subroutines" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> If required, the use of functions or subroutines</h2>
 <p>You shouldn’t be repeatedly writing the same code: if you find yourself doing this, stop! It’s much more efficient to create a function or subroutine instead. By doing this you only need to quality assure the function once, rather than your repetitive code many times. It also means that any future changes need to be implemented only in one place rather than many, and can be more efficient for the code to run.</p>
 <pre><code># Create a function for calculating the weighted average
@@ -370,6 +381,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

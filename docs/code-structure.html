@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Advanced: Optimising code structure | DfE Good code practice</title>
+  <title>Chapter 5 Advanced: Optimising code structure | DfE Good Code Practice</title>
   <meta name="description" content="DfE Good Code Practide guide." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Advanced: Optimising code structure | DfE Good code practice" />
+  <meta property="og:title" content="Chapter 5 Advanced: Optimising code structure | DfE Good Code Practice" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Advanced: Optimising code structure | DfE Good code practice" />
+  <meta name="twitter:title" content="Chapter 5 Advanced: Optimising code structure | DfE Good Code Practice" />
   
   <meta name="twitter:description" content="DfE Good Code Practide guide." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2020-11-04" />
+<meta name="date" content="2021-08-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="good.html"/>
 <link rel="next" href="testing.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,21 +51,23 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -129,16 +133,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#our-approach-to-writing-and-updating-this-guidance"><i class="fa fa-check"></i><b>1.3</b> Our approach to writing and updating this guidance</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a><ul>
+<li class="chapter" data-level="2" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html"><i class="fa fa-check"></i><b>2</b> The fundamentals of writing good code</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="the-fundamentals-of-writing-good-code.html"><a href="the-fundamentals-of-writing-good-code.html#why-writing-good-code-is-so-important"><i class="fa fa-check"></i><b>2.1</b> Why writing good code is so important</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>3</b> Fundamentals: How to write good code</a></li>
-<li class="chapter" data-level="4" data-path="good.html"><a href="good.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a><ul>
+<li class="chapter" data-level="4" data-path="good.html"><a href="good.html"><i class="fa fa-check"></i><b>4</b> Fundamentals: What good code looks like</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="good.html"><a href="good.html#a-clear-and-informative-header"><i class="fa fa-check"></i><b>4.1</b> A clear and informative Header</a></li>
 <li class="chapter" data-level="4.2" data-path="good.html"><a href="good.html#consistent-use-of-indentation"><i class="fa fa-check"></i><b>4.2</b> Consistent use of indentation</a></li>
 <li class="chapter" data-level="4.3" data-path="good.html"><a href="good.html#descriptive-use-of-variable-names"><i class="fa fa-check"></i><b>4.3</b> Descriptive use of variable names</a></li>
@@ -148,10 +155,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="good.html"><a href="good.html#if-required-the-use-of-functions-or-subroutines"><i class="fa fa-check"></i><b>4.7</b> If required, the use of functions or subroutines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
-<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a><ul>
+<li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
 <li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
-<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a><ul>
+<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
 <li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
 <li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
@@ -161,13 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
-<li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a><ul>
+<li class="chapter" data-level="8" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>8</b> Advanced: Documentation</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="documentation.html"><a href="documentation.html#comments"><i class="fa fa-check"></i><b>8.1</b> Comments</a></li>
 <li class="chapter" data-level="8.2" data-path="documentation.html"><a href="documentation.html#rmarkdown-file"><i class="fa fa-check"></i><b>8.2</b> Rmarkdown file</a></li>
 <li class="chapter" data-level="8.3" data-path="documentation.html"><a href="documentation.html#packaging-your-analysis"><i class="fa fa-check"></i><b>8.3</b> Packaging your analysis</a></li>
 <li class="chapter" data-level="8.4" data-path="documentation.html"><a href="documentation.html#a-word-on-package-version-and-dependency"><i class="fa fa-check"></i><b>8.4</b> A word on package version and dependency</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a><ul>
+<li class="chapter" data-level="9" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>9</b> Links</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="links.html"><a href="links.html#internal-dfe-and-other-government-department-resources"><i class="fa fa-check"></i><b>9.1</b> Internal DfE and Other Government Department resources</a></li>
 <li class="chapter" data-level="9.2" data-path="links.html"><a href="links.html#testing-1"><i class="fa fa-check"></i><b>9.2</b> Testing</a></li>
 <li class="chapter" data-level="9.3" data-path="links.html"><a href="links.html#style-guides"><i class="fa fa-check"></i><b>9.3</b> Style Guides</a></li>
@@ -182,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good code practice</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfE Good Code Practice</a>
           </h1>
         </div>
 
@@ -190,43 +201,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code_structure" class="section level1">
+<div id="code_structure" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Advanced: Optimising code structure</h1>
 <p>Complex analytical projects often take up thousands of lines of code that execute very different tasks such as data cleaning, analysis and output production. As we’ve already outlined, breaking these down into separate, meaningful chunks is essential both for the author’s ease of use and to help quality assurers quickly get a grasp on what the code is doing. For small to medium-sized projects it can be sufficient to break down the code into named sections within a same file. Each section carries out a single, well-defined task. The example below shows what this can look like in a basic script.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb7-1"><a href="code-structure.html#cb7-1"></a><span class="co"># Example of good code structure in a basic R script</span></span>
-<span id="cb7-2"><a href="code-structure.html#cb7-2"></a><span class="co"># Code sections were created using Rstudio&#39;s shortcut ctrl+shift+r</span></span>
-<span id="cb7-3"><a href="code-structure.html#cb7-3"></a></span>
-<span id="cb7-4"><a href="code-structure.html#cb7-4"></a><span class="co"># Load libraries ----------</span></span>
-<span id="cb7-5"><a href="code-structure.html#cb7-5"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb7-6"><a href="code-structure.html#cb7-6"></a><span class="kw">library</span>(DBI)</span>
-<span id="cb7-7"><a href="code-structure.html#cb7-7"></a><span class="kw">library</span>(odbc)</span>
-<span id="cb7-8"><a href="code-structure.html#cb7-8"></a><span class="kw">library</span>(broom)</span>
-<span id="cb7-9"><a href="code-structure.html#cb7-9"></a></span>
-<span id="cb7-10"><a href="code-structure.html#cb7-10"></a><span class="co"># Fetch data from SQL table ----------</span></span>
-<span id="cb7-11"><a href="code-structure.html#cb7-11"></a>some_data_set &lt;-<span class="st"> </span><span class="kw">tbl</span>(some_connection, <span class="st">&quot;some_SQL_table&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb7-12"><a href="code-structure.html#cb7-12"></a><span class="st">  </span><span class="kw">collect</span>()</span>
-<span id="cb7-13"><a href="code-structure.html#cb7-13"></a></span>
-<span id="cb7-14"><a href="code-structure.html#cb7-14"></a><span class="co"># Remove missing data----------</span></span>
-<span id="cb7-15"><a href="code-structure.html#cb7-15"></a>some_data_set &lt;-<span class="st"> </span>some_data_set <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-16"><a href="code-structure.html#cb7-16"></a><span class="st">    </span><span class="kw">omit.na</span>()</span>
-<span id="cb7-17"><a href="code-structure.html#cb7-17"></a></span>
-<span id="cb7-18"><a href="code-structure.html#cb7-18"></a><span class="co"># Run linear model ----------</span></span>
-<span id="cb7-19"><a href="code-structure.html#cb7-19"></a>some_model &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data =</span> some_data_set)</span>
-<span id="cb7-20"><a href="code-structure.html#cb7-20"></a></span>
-<span id="cb7-21"><a href="code-structure.html#cb7-21"></a><span class="co"># Extract coefficients from model ----------</span></span>
-<span id="cb7-22"><a href="code-structure.html#cb7-22"></a>some_model_fit &lt;-<span class="st"> </span>broom<span class="op">::</span><span class="kw">tidy</span>(some_model)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb7-1"><a href="code-structure.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of good code structure in a basic R script</span></span>
+<span id="cb7-2"><a href="code-structure.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Code sections were created using Rstudio&#39;s shortcut ctrl+shift+r</span></span>
+<span id="cb7-3"><a href="code-structure.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="code-structure.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries ----------</span></span>
+<span id="cb7-5"><a href="code-structure.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-6"><a href="code-structure.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb7-7"><a href="code-structure.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(odbc)</span>
+<span id="cb7-8"><a href="code-structure.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb7-9"><a href="code-structure.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="code-structure.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch data from SQL table ----------</span></span>
+<span id="cb7-11"><a href="code-structure.html#cb7-11" aria-hidden="true" tabindex="-1"></a>some_data_set <span class="ot">&lt;-</span> <span class="fu">tbl</span>(some_connection, <span class="st">&quot;some_SQL_table&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="code-structure.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
+<span id="cb7-13"><a href="code-structure.html#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="code-structure.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove missing data----------</span></span>
+<span id="cb7-15"><a href="code-structure.html#cb7-15" aria-hidden="true" tabindex="-1"></a>some_data_set <span class="ot">&lt;-</span> some_data_set <span class="sc">%&gt;%</span> </span>
+<span id="cb7-16"><a href="code-structure.html#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">omit.na</span>()</span>
+<span id="cb7-17"><a href="code-structure.html#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="code-structure.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Run linear model ----------</span></span>
+<span id="cb7-19"><a href="code-structure.html#cb7-19" aria-hidden="true" tabindex="-1"></a>some_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> some_data_set)</span>
+<span id="cb7-20"><a href="code-structure.html#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="code-structure.html#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract coefficients from model ----------</span></span>
+<span id="cb7-22"><a href="code-structure.html#cb7-22" aria-hidden="true" tabindex="-1"></a>some_model_fit <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">tidy</span>(some_model)</span></code></pre></div>
 <p>For larger projects, it is best practice to split the raw code across multiple files. The script in each file executes a single step of the overall analytical pipeline - a practice known as <strong>modular programming</strong>. Files should have meaningful names and be numbered to reflect the chronological order they must be run in. It is good practice to keep these files together in a dedicated <code>Scripts</code> folder. Beyond file numbering, a convenient way to ensure a quality assurer will run these scripts in the correct order is to provide a master script from which each component script is called in the correct sequence. In R, code or data described in separate files can be called up using the <code>source()</code> function. R Shiny applications are very commonly written in a modular way, and Rstudio makes it easy to set them up as separate <strong>User Interface</strong> and <strong>Server</strong> files from the start, using <code>File &gt; New File &gt; Shiny web App &gt; Application type &gt; multiple files</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb8-1"><a href="code-structure.html#cb8-1"></a><span class="co"># Master script sourcing individual</span></span>
-<span id="cb8-2"><a href="code-structure.html#cb8-2"></a><span class="co"># component scripts. All scripts are kept in the Scripts folder</span></span>
-<span id="cb8-3"><a href="code-structure.html#cb8-3"></a></span>
-<span id="cb8-4"><a href="code-structure.html#cb8-4"></a><span class="co"># Run the master script to execute each step </span></span>
-<span id="cb8-5"><a href="code-structure.html#cb8-5"></a><span class="co"># one by one in the correct order</span></span>
-<span id="cb8-6"><a href="code-structure.html#cb8-6"></a></span>
-<span id="cb8-7"><a href="code-structure.html#cb8-7"></a><span class="kw">source</span>(<span class="st">&quot;Scripts/01_fetch_data.R&quot;</span>)</span>
-<span id="cb8-8"><a href="code-structure.html#cb8-8"></a><span class="kw">source</span>(<span class="st">&quot;Scripts/02_clean_data.R&quot;</span>)</span>
-<span id="cb8-9"><a href="code-structure.html#cb8-9"></a><span class="kw">source</span>(<span class="st">&quot;Scripts/03_run_all_models.R&quot;</span>)</span>
-<span id="cb8-10"><a href="code-structure.html#cb8-10"></a><span class="kw">source</span>(<span class="st">&quot;Scripts/04_create_charts.R&quot;</span>)</span>
-<span id="cb8-11"><a href="code-structure.html#cb8-11"></a><span class="kw">source</span>(<span class="st">&quot;Scripts/05_produce_and_save_report.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb8-1"><a href="code-structure.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Master script sourcing individual</span></span>
+<span id="cb8-2"><a href="code-structure.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># component scripts. All scripts are kept in the Scripts folder</span></span>
+<span id="cb8-3"><a href="code-structure.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="code-structure.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the master script to execute each step </span></span>
+<span id="cb8-5"><a href="code-structure.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># one by one in the correct order</span></span>
+<span id="cb8-6"><a href="code-structure.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="code-structure.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Scripts/01_fetch_data.R&quot;</span>)</span>
+<span id="cb8-8"><a href="code-structure.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Scripts/02_clean_data.R&quot;</span>)</span>
+<span id="cb8-9"><a href="code-structure.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Scripts/03_run_all_models.R&quot;</span>)</span>
+<span id="cb8-10"><a href="code-structure.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Scripts/04_create_charts.R&quot;</span>)</span>
+<span id="cb8-11"><a href="code-structure.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Scripts/05_produce_and_save_report.R&quot;</span>)</span></code></pre></div>
 
 </div>
             </section>
@@ -258,6 +269,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
