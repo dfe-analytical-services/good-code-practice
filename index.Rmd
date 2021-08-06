@@ -1,5 +1,5 @@
 ---
-title: "DfE Good code practice"
+title: "DfE Good Code Practice"
 author: "Department for Education guidance"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
