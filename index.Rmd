@@ -18,6 +18,8 @@ The framework sets consistent standards of quality assurance across analytical w
 ## Who is this guide for?
 This guide has been compiled to support programmers within the Department for Education to write better code that facilitates QA.  If you're an experienced programmer, you shouldn't find anything new here but if you're a less experienced programmer and/or new to DfE, this guide should enable you to embed good code practice into your work.
 
+This guide complements the Analytical Function [Quality Assurance of Code for Analysis and Research](https://best-practice-and-impact.github.io/qa-of-code-guidance).
+
 It is split into several parts; chapters two to four cover the fundamentals of writing good code and maintaining a clear code structure, whilst chapters five to eight cover testing, version control and documentation and have more focus on quality assuring code.  Throughout, the focus is on the R programming language but the principles mentioned in this guide are language agnostic.
 
 ## Writing code for QA
