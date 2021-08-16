@@ -1,38 +1,68 @@
 # Links{#links}
 
-All of the links mentioned throughout this document, plus some additional reading and resources are here.
+:::: {.infoboxblue .info data-latex="info"}
+
+This page collates all of the links mentioned throughout this document, plus some additional reading and resources.
+
+::::
 
 ## Internal DfE and Other Government Department resources
 
-* [DfE QA framework](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/Quality-Assurance.aspx)
+* [DfE QA page](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/Quality-Assurance.aspx)
+  + The main sharepoint pages for QA in DfE - containing various templates and documentation to assist with quality assurance.
+* [DfE QA framework](https://educationgovuk.sharepoint.com/:w:/r/sites/sarpi/g/_layouts/15/Doc.aspx?sourcedoc=%7BE1DED116-2A85-4754-993F-A6E458DA3A59%7D&file=Quality%20Assurance%20of%20Models%20at%20DfE_April_2020.docx&action=default&mobileredirect=true)
+  + The framework sets consistent standards of quality assurance across all anaytical work.
 * [Git and DevOps Guide](https://dfe-analytical-services.github.io/vsts-for-analysis/)
+  + A guide to assist with version control using Git and DevOps.
 * [Analytics Academy - R training course](https://educationgovuk.sharepoint.com/sites/DAN/Data%20Science/The%20Analytics%20Academy%20-%20An%20R%20training%20course.aspx)
+  + A course created by analysts at DfE to help you learn and master R skills. Bitesized videos, lessons and missions.
 * [DfE Coffee and Coding](https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Coffee%20and%20Coding.aspx)
+  + DfE seminars focusing on coding tools and techniques. See recordings/materials from previous seminars, and find out about upcoming seminars.
 * [R in ESFA](https://rsconnect/rsc/esfa-r-training/)
+  + An introduction to common tasks and problems in R, aimed at those new to R and RStudio.
 * [Data Engineering Division T-SQL coding standards](https://teams.microsoft.com/l/file/5F396754-1495-49C8-AF19-E00498D2AF2A?tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9&fileType=docx&objectUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN%2FShared%20Documents%2FAll%20analysts%2FTSQL%20Coding%20Standards.docx&baseUrl=https%3A%2F%2Feducationgovuk.sharepoint.com%2Fsites%2FDAN&serviceName=teams&threadId=19:62586ff36a9046eb9615668635ef3f8b@thread.skype&groupId=6572094f-43a3-4537-bcf0-fc27dc6557ed)
-* [FE R and SQL guide](https://educationgovuk.sharepoint.com/sites/DAN/Shared%20Documents/DfE%20Data%20Science/2020-04_coding-best-practice-guide.html)
+  + Guidance on how to utilise best practice in all development products for SQL Server, and industry standards that must be adhered to.
 * [Statistics Production Guidance](https://rsconnect/rsc/stats-production-guidance/)
+  + Guide aimed at anyone producing or publishing official statistics, particularly for those using Explore Education Statistics (EES).
 * [DfE Data Warehouse Wiki - FE](https://educationgovuk.sharepoint.com/sites/lveefa00001/efawiki/Data%20Warehouse%20Wiki.aspx)
+  + The Data Warehouse is used to publish official statistics, and is currently the single data store for Individualised Learner Record data.
 * [ONS QA of code](https://bookdown.org/joshuah40/qa_code/introduction.html)
+  + Guidance for those using coding languages produced by the Office for National Statistics.
 
 ## Testing
 * [Automated testing with testthat](https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/)
+  + A blog post about using the testthat package to perform different types of testing
 * [TestThat blog](https://katherinemwood.github.io/post/testthat/)
+  + A blog post about using the testthat package to perform unit testing
 * [Hadley Wickham - Testing](http://r-pkgs.had.co.nz/tests.html)
+  + Hadley Wickham (the author of the testthat package) discusses how to structure and write tests.
 * [Functional programming and unit testing](https://b-rodrigues.github.io/fput/unit-testing.html#unit-testing-with-the-testthat-package)
+  + More information on unit testing within R
 * [Unit testing in R](https://billster45.github.io/rapid_r_data_vis_book/intro.html#qa-and-unit-tests)
+  + Using tidylog, testthat and assertr to perform unit testing
 * [Pytest](https://docs.pytest.org/en/latest/)
+  + Testing in python using pytest
 * [Shiny testing](https://shiny.rstudio.com/articles/testing-overview.html)
+  + Testing Shiny apps using Shinytest
 * [Shiny - Scaling testing](https://mastering-shiny.org/scaling-testing.html)
+  + Documentation on using testthat to test Shiny apps
 * [Shinytest](https://rstudio.github.io/shinytest/articles/shinytest.html)
+  + Documentation on the Shinytest package, which records a script of actions and takes snapshots of Shiny apps to assist with testing/debugging.
 
 ## Style Guides
 * [R Style guide](https://style.tidyverse.org/index.html)
+  + A guide to best practice for writing code in R
 * [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
+  + A guide to best practice for writing code in Python
 * [Kickstarter SQL guide](https://gist.github.com/fredbenenson/7bb92718e19138c20591)
+  + A guide to best practice for writing code in SQL
 * [VBA Style Guide](https://github.com/danwagnerco/vba-style-guide)
+  + A guide to best practice for writing code in VBA
 
 ## R
 * [Rapid R Data Viz](https://billster45.github.io/rapid_r_data_vis_book/)
+  + Quick and easy intro to data visualisation in R.
 * [Packaging R](http://r-pkgs.had.co.nz/)
+  + Documentation on how to write and use packages in R.
 * [Renv](https://rstudio.github.io/renv/articles/renv.html)
+  + Documentation on the renv package - this helps to manage library paths and isolate R dependencies to ensure that existing tools work as they did before regardless of updates.
