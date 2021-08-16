@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2021-08-12" />
+<meta name="date" content="2021-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="pictures/qa_logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
@@ -158,16 +158,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
 <li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
-<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
-<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a>
+<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.1</b> In-script testing</a></li>
+<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.2</b> Formalised testing</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
-<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
-<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.4</b> pytest</a></li>
-<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.5</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
+<li class="chapter" data-level="6.2.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.2.1</b> Software testing</a></li>
+<li class="chapter" data-level="6.2.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.2.2</b> Unit testing</a></li>
+<li class="chapter" data-level="6.2.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.2.3</b> testthat</a></li>
+<li class="chapter" data-level="6.2.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.2.4</b> pytest</a></li>
+<li class="chapter" data-level="6.2.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.2.5</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.2.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.2.6</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -213,6 +212,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> The fundamentals of writing good code</h1>
 <p>Writing good code - code that can be easily understood, used, maintained and modified – is vital. The requirement for better, more robust models and reliable data analysis that meet our emerging quality assurance expectations is intensifying. At the same time, the growing toolkit of data science techniques is creating exciting opportunities for Government analysts to explore new methodologies and software, along with an expanding choice of coding platforms to work within.</p>
 <p>Whilst there is plenty of guidance on writing good code, it’s rather piecemeal and it can be very varied. This guidance aims to provide a single consistent narrative and bring together best practice, <a href="links.html#links">links</a> and further reading to support our analysts in our fast-changing world. It is all too easy to manufacture working code that does the job but is unintelligible even to its author within a few days. We do acknowledge that there is no single way to write great code but there are common principles that when used will always help you write good code.</p>
+<center>
+<p><img src="pictures/confused.png" title="Image taken from https://www.youtube.com/watch?v=twBI5RYHcWY" /></p>
+</center>
 <div id="why-writing-good-code-is-so-important" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Why writing good code is so important</h2>
 <p>When embarking on a coding task it can be very easy to focus on a single immediate goal – making something that works now. But there are others who will need to use your code, and who may have different priorities. They include:</p>
@@ -230,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>These should be your key considerations when writing code. You might be sure your code works, but if it’s difficult for someone else to verify that it works, or to reuse and adapt it in future, then…well, it’s not <em>completely</em> useless, but it’s pretty close.</p>
 <p>Good coding practice is therefore about ensuring that any code, written for any purpose, is easy to read and understand, is easily shared between analysts, and is straightforward to QA. It aims to avoid wasted time and error, as well as helping to “de-mystify” coding to those who are new to the skill.</p>
+<div class="infoboxblue info">
 <p>By utilising and promoting the principles of good coding practice the Department can face a changing and developing world of analysis in confidence:</p>
 <ul>
 <li>Quality assurance can be quick and effective – <em>good code is easy to understand</em></li>
@@ -237,6 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Changing policies will not require model rebuilds – <em>good code is easy to maintain</em></li>
 <li>New models do not need to start from scratch – <em>good code is easy to modify</em></li>
 </ul>
+</div>
 
 </div>
 </div>

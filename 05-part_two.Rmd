@@ -2,8 +2,11 @@
 
 From a coding point of view, testing covers the requirements spelled out in the **Verification** pillar of the QA framework. Note that testing does not overlap with the **Validation** QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing.  These test the different components of "units" of code using tools such as testthat in R or Pytest in Python.
 
-## Console tests
+:::: {.infoboxred .exclamation data-latex="exclamation"}
+
 Testing code within the console is not recommended as it leaves no trace or records of what has been checked.
+
+::::
 
 ## In-script testing
 In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from `print()` statements, to `base` functions `stop()` and `stopfinot()`, to functions from dedicated packages such as `assertthat` or `testit`. Examples are shown below. 
@@ -35,12 +38,16 @@ In Python similar approaches can be used. There is also a [print function](https
 ## Formalised testing
 Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called "testers") and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.
 
+:::: {.infoboxyellow .question data-latex="question"}
+
 The following types of software testing are commonly used:
 
 * Unit testing - tests the different components or "units" of code using tools such as `testthat` in R.
 * Integration testing - tests the correct flow of data through the components.
 * System testing - tests the overall outputs make sense.
 * Acceptance testing - tests whether or not the work meets its objectives.
+
+::::
 
 ### Software testing
 

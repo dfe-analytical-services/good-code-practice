@@ -11,10 +11,13 @@ github-repo: rstudio/bookdown-demo
 description: "DfE Good Code Practide guide."
 favicon: pictures/qa_logo.png
 ---
+# Introduction
 
-# The QA framework
-The [DfE QA framework](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf) was introduced in April 2019.
-The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics. 
+:::: {.infoboxblue .info data-latex="info"}
+
+Want to download a PDF version of this documentation? Click the PDF symbol at the top of this page: ![](pictures\pdf-pic.png "Download PDF button")
+
+::::
 
 ## Who is this guide for?
 This guide has been compiled to support programmers within the Department for Education to write better code that facilitates QA.  If you're an experienced programmer, you shouldn't find anything new here but if you're a less experienced programmer and/or new to DfE, this guide should enable you to embed good code practice into your work.
@@ -34,17 +37,15 @@ There are 4 main aspects to writing high-quality code:
 
 These ways of working broadly map to 3 of the 5 pillars described by the DfE QA framework, namely **Governance and Documentation**, **Clarity and structure** and **Verification**.  In particular, if implemented well, this guide will assist you in meeting good standards of clarity and structure and verification for the DfE QA framework.
 
+:::: {.infoboxyellow .question data-latex="question"}
+
+The [DfE QA framework](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/878616/Principles_of_QA_for_analysis.pdf) was introduced in April 2019.
+The framework sets consistent standards of quality assurance across analytical work; whether data analysis, modelling, dashboard production, social research or production of Official Statistics. 
+
+::::
+
 ## Our approach to writing and updating this guidance
 
 Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.
 
 The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon.  It is intended to be a living document and we'd very much welcome suggestions for improvements or additions.  Please contact the [Modelling Improvement and Assurance Unit](mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice) or raise an issue on [Git](https://github.com/dfe-analytical-services/good-code-practice). These will be reviewed by the DfE QA Working Group and any approved changes will be made.
-
-
-
-
-:::: {.infobox .note data-latex="note"}
-
-Want to download a PDF version of this documentation? Click the PDF symbol at the top of this page: ![](pictures\pdf-pic.png "Download PDF button")
-
-::::

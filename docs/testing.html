@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2021-08-12" />
+<meta name="date" content="2021-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="pictures/qa_logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
@@ -158,16 +158,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
 <li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
-<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
-<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a>
+<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.1</b> In-script testing</a></li>
+<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.2</b> Formalised testing</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
-<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
-<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.4</b> pytest</a></li>
-<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.5</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
+<li class="chapter" data-level="6.2.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.2.1</b> Software testing</a></li>
+<li class="chapter" data-level="6.2.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.2.2</b> Unit testing</a></li>
+<li class="chapter" data-level="6.2.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.2.3</b> testthat</a></li>
+<li class="chapter" data-level="6.2.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.2.4</b> pytest</a></li>
+<li class="chapter" data-level="6.2.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.2.5</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.2.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.2.6</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -212,12 +211,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="testing" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Advanced: Testing code</h1>
 <p>From a coding point of view, testing covers the requirements spelled out in the <strong>Verification</strong> pillar of the QA framework. Note that testing does not overlap with the <strong>Validation</strong> QA pillar: it is concerned with code running properly rather than with the adequacy of analytical assumptions. Testing is a vast topic and as such this guide will cover console tests and in-script testing in brief and focus on formalised testing procedures, such as unit testing. These test the different components of “units” of code using tools such as testthat in R or Pytest in Python.</p>
-<div id="console-tests" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Console tests</h2>
+<div class="infoboxred exclamation">
 <p>Testing code within the console is not recommended as it leaves no trace or records of what has been checked.</p>
 </div>
-<div id="in-script-testing" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> In-script testing</h2>
+<div id="in-script-testing" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> In-script testing</h2>
 <p>In-script testing is sufficient to facilitate QA in most cases, although tests should always be accompanied by brief comments signalling their presence and indicating what they are evaluating and what the expected output should be. For a quality assurer, running these tests ensures that the entire analytical workflow is reproducible. In R there are many ways to perform in-script checks, from <code>print()</code> statements, to <code>base</code> functions <code>stop()</code> and <code>stopfinot()</code>, to functions from dedicated packages such as <code>assertthat</code> or <code>testit</code>. Examples are shown below.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb9-1"><a href="testing.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code snippet creates a function that</span></span>
 <span id="cb9-2"><a href="testing.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns the maximum value of a vector</span></span>
@@ -237,9 +235,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-16"><a href="testing.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Error in get_max(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)) : is.numeric(x) is not TRUE</span></span></code></pre></div>
 <p>In Python similar approaches can be used. There is also a <a href="https://www.w3schools.com/python/ref_func_print.asp">print function</a> and exceptions provide a way of returning an error if a specified condition is met, much like the functionality offered by R’s <code>stop()</code> and <code>stopifnot()</code> functions. There is information about how to raise exceptions <a href="https://www.w3schools.com/python/gloss_python_raise.asp">here</a> or you can find more technical, detailed information about the different types of exceptions <a href="https://docs.python.org/3/library/exceptions.html">here</a>.</p>
 </div>
-<div id="formalised-testing" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Formalised testing</h2>
+<div id="formalised-testing" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Formalised testing</h2>
 <p>Beyond in-script tests, an analyst may decide to take a more formal approach to testing if the project warrants it. Software development has dedicated testing professionals (called “testers”) and there is plenty of literature about software testing on the internet. Much of this is transferable to code based analysis, but not all of it. There are times when it makes sense to make a distinction between a piece of analysis (which is generally operated by a technical specialist) and an IT product (e.g. a website, which is used by a broader user base). Shiny apps sit somewhere between analysis and an IT product therefore these are covered separately later on.</p>
+<div class="infoboxyellow question">
 <p>The following types of software testing are commonly used:</p>
 <ul>
 <li>Unit testing - tests the different components or “units” of code using tools such as <code>testthat</code> in R.</li>
@@ -247,8 +246,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>System testing - tests the overall outputs make sense.</li>
 <li>Acceptance testing - tests whether or not the work meets its objectives.</li>
 </ul>
-<div id="software-testing" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Software testing</h3>
+</div>
+<div id="software-testing" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Software testing</h3>
 <p>Before we focus on unit testing, it is important to note that the other testing aspects cover testing of wider areas of a software project than just the code, and other parts of the DfE QA framework cover how to handle these:</p>
 <ul>
 <li>Integration testing tests correct data flow, transformations and interactions between different parts of the analysis.</li>
@@ -258,8 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Software testing can make a distinction between functional and non-functional testing too. In the context of analysis, a functional test would be one which tests the analysis produces what its intended to whereas a non-functional test would cover things such as its run-time and interface (i.e. things which affect the experience of using it, but not the numbers that come out).</p>
 <p>For more information, see <a href="https://www.guru99.com/levels-of-testing.html">here</a> or explore further with help from a search engine.</p>
 </div>
-<div id="unit-testing" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> Unit testing</h3>
+<div id="unit-testing" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Unit testing</h3>
 <p>Unit testing seeks to test every distinct code component to enable isolation of specific areas that may be introducing errors. For code made up of functions, it is sometimes easier to think of this as testing each specific function.</p>
 <p>One of the key principles of unit testing is that each unit (or function) should be tested independently of all the others and without dependency on any data sources that may change. The objective is to isolate the cause of any errors which means that unit tests should not rely on output from previous functions or rely on data from a live source (e.g SQL) as in both these instances it would not be possible to identify if the function being tested caused the error.</p>
 <p>To write a good set of unit tests, think about the different types of input (e.g. positive values, zero values) the function may receive, define some fixed inputs to cover these and then write tests to ensure the different cases are handled correctly.</p>
@@ -269,8 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>pytest</code> framework offers a similar resource for Python (more details <a href="https://docs.pytest.org/en/latest/">here</a>)</li>
 </ul>
 </div>
-<div id="testthat" class="section level3" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> testthat</h3>
+<div id="testthat" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> testthat</h3>
 <p>The <code>testthat</code> package, maintained by the RStudio team, is commonly used for unit testing in R. Although most of its documentation and features focus on testing in the context of package writing, <code>testthat</code> can also be used with regular R projects. There’s a brief overview of unit testing below, but for a more detailed introduction see <a href="https://katherinemwood.github.io/post/testthat/">here</a> or <a href="https://www.r-bloggers.com/automated-testing-with-testthat-in-practice/">here</a> for a more in-depth overview of automated testing, including test driven development.</p>
 <p>In <code>testthat</code>, tests are called <strong>expectations</strong>. These spell out the expected behaviour of the function or unit of code. <code>testthat</code> provides many functions to define expectations - see details <a href="http://r-pkgs.had.co.nz/tests.html">here</a>. Expectations falling within a same testing context are stored in a same file and all testing files are saved within a dedicated testing directory. Below is an example of testing a simple function.</p>
 <p>Firstly we need to have a defined function to test:</p>
@@ -311,14 +311,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-3"><a href="testing.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">test_dir</span>(<span class="st">&quot;testing_directory&quot;</span>)</span></code></pre></div>
 <p><code>test_dir()</code> provides detailed outputs, including a time line of success/failure and any warnings that may have occurred.</p>
 </div>
-<div id="pytest" class="section level3" number="6.3.4">
-<h3><span class="header-section-number">6.3.4</span> pytest</h3>
+<div id="pytest" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> pytest</h3>
 <p><code>pytest</code> provides similar functionality for Python as testthat does for R. When getting started with <code>pytest</code>, note that <code>pytest</code> implements a test discovery method to find relevant tests. Unless specified otherwise, test files are assumed to be in the current working directory or a sub-folder thereof. It is possible to setup <code>testpaths</code> to specify different file paths for test files if this better fits the project structure. Within these folders, pytest will discover tests in Python files named as <code>test_*.py</code> or <code>*_test.py</code>. The tests themselves then need to be functions named <code>test_*</code> to be detected as tests.</p>
 <p>Whereas <code>testthat</code> has functions to define its expectations, <code>pytest</code> makes use of Pythons <code>assert</code> statement to specify the condition the test expects to be met.</p>
 <p>Python IDEs can come with integration for <code>pytest</code>, making it possible to run tests at the click of the button. If you are using Spyder see <a href="https://www.spyder-ide.org/blog/introducing-unittest-plugin/">here</a> or PyCharm see <a href="https://www.jetbrains.com/help/pycharm/pytest.html">here</a>.</p>
 </div>
-<div id="testing-shiny-apps" class="section level3" number="6.3.5">
-<h3><span class="header-section-number">6.3.5</span> Testing Shiny apps</h3>
+<div id="testing-shiny-apps" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Testing Shiny apps</h3>
 <p>R Shiny apps include not only analysis, but also a user interface and server logic. This makes them closer to a software development project than the average piece of analytical work and additional functionality is available within R to support testing of Shiny apps. Useful demonstrations of some methods can be found <a href="https://shiny.rstudio.com/articles/testing-overview.html">here</a> and <a href="https://mastering-shiny.org/scaling-testing.html">here</a>.</p>
 <p>Unit, integration and systems testing can all be automated with a little extra consideration given to the structure of your shiny code.</p>
 <p>Pulling functions out of reactive objects allows unit testing to be implemented for those functions. Take the following simple reactive object that doubles the value of the input labelled <code>x</code>:</p>
@@ -357,8 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="testing.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.unsetenv</span>(<span class="st">&quot;http_proxy&quot;</span>)</span></code></pre></div>
 <p>It is important not to overlook usability testing (also known as UX testing or user experience testing) when creating an app. While this cannot be automated, there is immense value in watching a third party use an app. It does not matter how immaculate the code is if the end-user finds the app hard to use or difficult to parse. As such, usability testing should form part of any QA process involving shiny apps.</p>
 </div>
-<div id="test-driven-development" class="section level3" number="6.3.6">
-<h3><span class="header-section-number">6.3.6</span> Test driven development</h3>
+<div id="test-driven-development" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Test driven development</h3>
 <p>“Test driven development” describes a way of working where tests are written prior to the code being written. Working out what working code encompasses before writing it allows immediate checking of whether new code works and avoids any retrofitting of tests to match achieved output. With a strong QA plan, this could also be implemented for analysis. As testing of each new bit of code happens immediately after creation it also reduces the risk of something faulty getting heavily baked in. As with testing, there are plenty of resources on the internet such as <a href="https://www.guru99.com/test-driven-development.html">this one</a>.</p>
 
 </div>

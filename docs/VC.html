@@ -24,7 +24,7 @@
 <meta name="author" content="Department for Education guidance" />
 
 
-<meta name="date" content="2021-08-12" />
+<meta name="date" content="2021-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="pictures/qa_logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> The QA framework</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#who-is-this-guide-for"><i class="fa fa-check"></i><b>1.1</b> Who is this guide for?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#writing-code-for-qa"><i class="fa fa-check"></i><b>1.2</b> Writing code for QA</a></li>
@@ -158,16 +158,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="code-structure.html"><a href="code-structure.html"><i class="fa fa-check"></i><b>5</b> Advanced: Optimising code structure</a></li>
 <li class="chapter" data-level="6" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>6</b> Advanced: Testing code</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#console-tests"><i class="fa fa-check"></i><b>6.1</b> Console tests</a></li>
-<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.2</b> In-script testing</a></li>
-<li class="chapter" data-level="6.3" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.3</b> Formalised testing</a>
+<li class="chapter" data-level="6.1" data-path="testing.html"><a href="testing.html#in-script-testing"><i class="fa fa-check"></i><b>6.1</b> In-script testing</a></li>
+<li class="chapter" data-level="6.2" data-path="testing.html"><a href="testing.html#formalised-testing"><i class="fa fa-check"></i><b>6.2</b> Formalised testing</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.3.1</b> Software testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.3.2</b> Unit testing</a></li>
-<li class="chapter" data-level="6.3.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.3.3</b> testthat</a></li>
-<li class="chapter" data-level="6.3.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.3.4</b> pytest</a></li>
-<li class="chapter" data-level="6.3.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.3.5</b> Testing Shiny apps</a></li>
-<li class="chapter" data-level="6.3.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.3.6</b> Test driven development</a></li>
+<li class="chapter" data-level="6.2.1" data-path="testing.html"><a href="testing.html#software-testing"><i class="fa fa-check"></i><b>6.2.1</b> Software testing</a></li>
+<li class="chapter" data-level="6.2.2" data-path="testing.html"><a href="testing.html#unit-testing"><i class="fa fa-check"></i><b>6.2.2</b> Unit testing</a></li>
+<li class="chapter" data-level="6.2.3" data-path="testing.html"><a href="testing.html#testthat"><i class="fa fa-check"></i><b>6.2.3</b> testthat</a></li>
+<li class="chapter" data-level="6.2.4" data-path="testing.html"><a href="testing.html#pytest"><i class="fa fa-check"></i><b>6.2.4</b> pytest</a></li>
+<li class="chapter" data-level="6.2.5" data-path="testing.html"><a href="testing.html#testing-shiny-apps"><i class="fa fa-check"></i><b>6.2.5</b> Testing Shiny apps</a></li>
+<li class="chapter" data-level="6.2.6" data-path="testing.html"><a href="testing.html#test-driven-development"><i class="fa fa-check"></i><b>6.2.6</b> Test driven development</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="VC.html"><a href="VC.html"><i class="fa fa-check"></i><b>7</b> Advanced: Version control</a></li>
@@ -211,7 +210,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="VC" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Advanced: Version control</h1>
-<p>Version control is critically important to writing robust, reproducible code, and is highly recommended regardless of QA requirements. At its most basic, it means keeping track of changes made to code over time. Version control software like <code>Git</code> take code snapshots and store them either locally or remotely. Purely local version control with <code>Git</code> offers fewer functionalities but is still extremely useful in reducing the risk of code-breaking changes as analysts can backtrack to previous working versions of their code. Remote version control requires the use of a Git repository hosting service such as Github or Azure DevOps (previously known as VSTS). These are online platforms where git repositories can be saved and synched with their local counterparts. This is a powerful way to write code collaboratively, with QA built-in the code writing process.</p>
+<p>Version control is critically important to writing robust, reproducible code, and is highly recommended regardless of QA requirements. At its most basic, it means keeping track of changes made to code over time. Version control software like <code>Git</code> take code snapshots and store them either locally or remotely. Purely local version control with <code>Git</code> offers fewer functionalities but is still extremely useful in reducing the risk of code-breaking changes as analysts can backtrack to previous working versions of their code. Remote version control requires the use of a Git repository hosting service such as Github or Azure DevOps (previously known as VSTS). These are online platforms where git repositories can be saved and synched with their local counterparts. This is a powerful way to write code collaboratively, with QA built-in to the code writing process.</p>
+<center>
+<p><img src="pictures/version.png" title="The git logo" /></p>
+</center>
 <p>A guide on version control using Git and DevOps for DfE analysts can be found <a href="https://dfe-analytical-services.github.io/vsts-for-analysis/">here</a> but watch this space for an updated version in the near future. From a QA point of view, an ideal situation is where the author of the code and their quality assurer collaborate on the same <code>Git</code> project. Concretely, the analyst creates a <strong>pull request</strong> to merge their code changes into a clean master version of the code. The approver then evaluates whether the change is appropriate and either approves or asks for edits to be made. This is an ideal scenario and perhaps recommended for business critical work. In most cases, the approver will have first sighting of the code after the project is completed. In that case, version control logs can still be saved to file and shared.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r badCode"><code class="sourceCode r"><span id="cb19-1"><a href="VC.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open a shell from Rstudio Tools</span></span>
 <span id="cb19-2"><a href="VC.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dropdown menu. Logs can be formatted</span></span>

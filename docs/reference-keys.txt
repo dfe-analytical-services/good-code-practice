@@ -1,4 +1,4 @@
-the-qa-framework
+introduction
 who-is-this-guide-for
 writing-code-for-qa
 our-approach-to-writing-and-updating-this-guidance
@@ -15,7 +15,6 @@ consistent-spacing
 if-required-the-use-of-functions-or-subroutines
 code_structure
 testing
-console-tests
 in-script-testing
 formalised-testing
 software-testing
