@@ -8,7 +8,7 @@ documentclass: book
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "DfE Good Code Practide guide."
+description: "DfE Good Code Practice guide."
 favicon: pictures/qa_logo.png
 ---
 # Introduction
@@ -49,3 +49,9 @@ The framework sets consistent standards of quality assurance across analytical w
 Our thinking has been informed by the basic principles of software development, while acknowledging that the scale of coding activity in the Department is typically small and often involves just a single individual coder. Formal software development tools are likely to be overly burdensome for many (but not all) projects, and we choose instead to use the simple three-stage framework of “design – develop – test” as our model here. Along with this goes the working rule-of-thumb that the time spent producing working code should be divided equally amongst the three stages.
 
 The first version of this guide was written by Kester Jarvis, Niall Taylor and Remi Vergnon.  It is intended to be a living document and we'd very much welcome suggestions for improvements or additions.  Please contact the [Modelling Improvement and Assurance Unit](mailto:modellingandqa@Educationgovuk.onmicrosoft.com?subject=Good%20coding%20practice) or raise an issue on [Git](https://github.com/dfe-analytical-services/good-code-practice). These will be reviewed by the DfE QA Working Group and any approved changes will be made.
+
+<center>
+
+![Image from xkcd.com](pictures/cartoon.jpg "Image taken from xkcd")
+
+</center>
